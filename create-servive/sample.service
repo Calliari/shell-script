@@ -1,0 +1,16 @@
+[Unit]
+Description=sample on the frontend
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+
+# As the same as the "sample.conf" file, the path to your app
+WorkingDirectory=/PATH/TO/APP/frontend/
+
+# This is the command to run the app
+ExecStart=/usr/bin/npm run dev
+
+[Install]
+WantedBy=multi-user.target
