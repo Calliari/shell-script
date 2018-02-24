@@ -1,6 +1,13 @@
 #!/bin/bash
 
 
+# install s3fs
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install s3fs -y
+sudo apt-get update -y
+
 
 # # mount a s3fs on a ec2, notes:
 mkdir /new_directory
