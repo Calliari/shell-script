@@ -15,7 +15,7 @@ sudo mv /etc/update-motd.d/* /etc/update-motd.d-available/
 
 
 sudo tee /etc/update-motd.d-available/99-custom_footer <<'EOF'
-#!/bin/bash
+#!/bin/sh
 #
 # Provides MOTD with some sysinfo.
 #
