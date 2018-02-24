@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Generte a MDTD
 # http://patorjk.com/software/taag/#p=testall&f=Big&t=My%20-%20Server
