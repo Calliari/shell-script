@@ -15,6 +15,7 @@ sudo apt-get install monit -y
 
 
 
-# restart a service when the condition is achievided
+# restart a service when the condition is achieved
+
 
 
