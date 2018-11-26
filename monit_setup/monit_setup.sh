@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# to send sms 
+# https://www.howtoforge.com/configure-monit-to-send-sms-instead-of-email
+
 # instructions on how to install, send email and restart service with monit
 
 # update the server
