@@ -14,6 +14,7 @@ sudo apt-get install monit -y
 
 # save the monitcr original file in case need later for references
 sudo mv /etc/monit/monitrc /etc/monit/monitrc.orig
+sudo chmod 0700 monitrc
 
 #send email when trigger the conditional event
 #"alert email to User" configuration block in /etc/monit/monitrc
