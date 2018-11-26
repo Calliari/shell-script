@@ -18,7 +18,7 @@ sudo mv /etc/monit/monitrc /etc/monit/monitrc.orig
 #send email when trigger the conditional event
 #"alert email to User" configuration block in /etc/monit/monitrc
 
-cat <<EFO> /etc/monit/monitrc
+sudo tee /etc/monit/monitrc <<EOF
 # Allow the email be sent through
 set mailserver localhost
 set mail-format {
@@ -54,7 +54,7 @@ EFO
 
 # restart a service when the condition is achieved
 #php monitoring" configuration block in "/etc/monit/conf.d/php7.0-fpm"
-cat <<EOF> /etc/monit/conf.d/php7.0-fpm
+sudo tee /etc/monit/conf.d/php7.0-fpm <<EOF
 check process php7.0-fpm with pidfile /var/run/php/php7.0-fpm.pid
     start program = "/etc/init.d/php7.0-fpm start" with timeout 30 seconds
     stop program = "/etc/init.d/php7.0-fpm stop"
@@ -65,7 +65,7 @@ EOF
 sudo chown root:root /etc/monit/conf.d/php7.0-fpm
 
 #"cpu-usage monitoring" configuration block in "/etc/monit/conf.d/cpu-usage"
-cat <<EFO> /etc/monit/conf.d/cpu-usage
+sudo tee /etc/monit/conf.d/cpu-usage <<EOF
 check system $HOST
     if cpu usage > 75% for 2 cycles then alert
 EFO
