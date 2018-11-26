@@ -68,5 +68,13 @@ sudo chown root:root /etc/monit/conf.d/php7.0-fpm
 sudo tee /etc/monit/conf.d/cpu-usage <<EOF
 check system $HOST
     if cpu usage > 75% for 2 cycles then alert
-EFO
+EOF
 sudo chown root:root /etc/monit/conf.d/cpu-usage
+
+#"file monitoring" configuration block in "/etc/monit/conf.d/file-monitoring"
+sudo tee /etc/monit/conf.d/file-monitoring <<EOF
+check file with path /tmp/file.txt
+  if does not exist then alert
+
+EOF
+sudo chown root:root /etc/monit/conf.d/file-monitoring 
