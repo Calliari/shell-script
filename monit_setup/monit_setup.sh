@@ -51,7 +51,7 @@ set mail-format {
 # set alert manager@foo.bar only on { timeout }  # receive just service-
 #                                                # timeout alert
 set alert technicalalerts+monit@gmail.net
-EFO
+EOF
 
 # restart a service when the condition is achieved
 #php monitoring" configuration block in "/etc/monit/conf.d/php7.0-fpm"
