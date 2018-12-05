@@ -56,6 +56,7 @@ set mail-format {
 set alert technicalalerts+monit@gmail.net
 EOF
 
+#==========================================================
 # restart a service when the condition is achieved
 #php monitoring" configuration block in "/etc/monit/conf.d/php7.0-fpm"
 sudo tee /etc/monit/conf.d/php7.0-fpm <<EOF
@@ -68,6 +69,7 @@ EOF
 
 sudo chown root:root /etc/monit/conf.d/php7.0-fpm
 
+#==========================================================
 #"cpu-usage monitoring" configuration block in "/etc/monit/conf.d/cpu-usage"
 sudo tee /etc/monit/conf.d/cpu-usage <<EOF
 check system $HOST
@@ -83,7 +85,9 @@ check file with path /tmp/file.txt
 EOF
 sudo chown root:root /etc/monit/conf.d/file-monitoring 
 
-sudo tee /etc/monit/conf.d <<EOF
+#==========================================================
+#" nginx monitoring" configuration block in "/etc/monit/conf.d/nginx"
+sudo tee /etc/monit/conf.d/nginx <<EOF
 check process nginx with pidfile /var/run/nginx.pid
     group www
     group nginx
