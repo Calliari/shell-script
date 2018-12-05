@@ -1,4 +1,6 @@
 #!/bin/bash
+# source of info
+https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
 
 # update this server
 sudo apt-get -y update
@@ -23,6 +25,15 @@ sudo swapon /swapfile
 # /swapfile   none    swap    sw    0   0
 echo -e "/swapfile   none    swap    sw    0   0" | sudo tee -a /etc/fstab
 
+# Values that are closer to 100 will try to put more data into swap in an effort to keep more RAM space free. 
+# default value is "60"
+cat /proc/sys/vm/swappiness
+
+# Cache Pressure Setting
+# default value is "100"
+cat /proc/sys/vm/vfs_cache_pressure
+
+# ========================================
 echo -e "\nvm.swappiness=20 \nvm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
 # vm.swappiness=20
 # vm.vfs_cache_pressure=50
