@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Monit GUI
+# https://guides.wp-bullet.com/install-latest-monit-ubuntu-16-04-later/
+
 # to send sms 
 # https://www.howtoforge.com/configure-monit-to-send-sms-instead-of-email
 
@@ -79,3 +82,24 @@ check file with path /tmp/file.txt
 
 EOF
 sudo chown root:root /etc/monit/conf.d/file-monitoring 
+
+sudo tee /etc/monit/conf.d <<EOF
+check process nginx with pidfile /var/run/nginx.pid
+    group www
+    group nginx
+    start program = "/etc/init.d/nginx start"
+    stop program = "/etc/init.d/nginx stop"
+    if failed port 80 protocol http request "/" then restart
+    if 5 restarts with 5 cycles then timeout
+    depend nginx_bin
+    depend nginx_rc
+
+check file nginx_bin with path /usr/sbin/nginx
+    group nginx
+    include /etc/monit/templates/rootbin
+
+check file nginx_rc with path /etc/init.d/nginx
+    group nginx
+    include /etc/monit/templates/rootbin
+
+EOF
