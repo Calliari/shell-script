@@ -83,7 +83,7 @@ MY_IP=$(curl ifconfig.co)
 
 echo -e "\n$MY_IP example.com www.example.com\n$MY_IP test.com www.test.com" | sudo tee -a /etc/hosts
 
-
+exit
 ###########
 # This will provide a secure pop up when you open a website
 # create a file path: "/etc/nginx/example_auth.conf"
