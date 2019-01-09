@@ -47,6 +47,8 @@ server {
 
         server_name example.com www.example.com;
 
+#        include /etc/nginx/example_auth.conf;
+
         location / {
                 try_files $uri $uri/ =404;
         }
@@ -80,3 +82,21 @@ sudo systemctl restart nginx
 MY_IP=$(curl ifconfig.co)
 
 echo -e "\n$MY_IP example.com www.example.com\n$MY_IP test.com www.test.com" | sudo tee -a /etc/hosts
+
+
+###########
+# This will provide a secure pop up when you open a website
+# create a file path: "/etc/nginx/example_auth.conf"
+satisfy any;
+auth_basic "Restricted";
+auth_basic_user_file /etc/nginx/example_auth.pwd;
+
+#create a username and pwd 
+htpasswd -c /etc/nginx/common/example_auth.pwd username
+
+# include the bellow line on your webhost nginx config
+include /etc/nginx/example_auth.conf;
+
+
+
+
