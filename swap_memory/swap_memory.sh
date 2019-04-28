@@ -1,6 +1,6 @@
 #!/bin/bash
 # source of info
-https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
+# https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04
 
 # update this server
 sudo apt-get -y update
