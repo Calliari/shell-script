@@ -118,7 +118,7 @@ check file nginx_rc with path /etc/init.d/nginx
 
 EOF
 #==========================================================
-check host cofe-aelb-solrcloud-891226402.eu-west-2.elb.amazonaws.com with address cofe-aelb-solrcloud-891226402.eu-west-2.elb.amazonaws.com
+check host solrcloud.eu-west-1.elb.amazonaws.com with address solrcloud.eu-west-1.elb.amazonaws.com
     if failed url
       http://solrcloud.eu-west-1.elb.amazonaws.com:8983/solr/#/
     then exec /usr/bin/sudo /bin/sh -c '/etc/init.d/solr restart'
