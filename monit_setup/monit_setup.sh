@@ -29,6 +29,7 @@ set mail-format {
      from: monit@$HOST
   subject: monit alert --  $EVENT $SERVICE
   message: $EVENT Service $SERVICE
+               Client:      {{client_name_alert_monit}}
                 Date:        $DATE
                 Action:      $ACTION
                 Host:        $HOST
@@ -59,21 +60,30 @@ EOF
 #==========================================================
 # restart a service when the condition is achieved
 #php monitoring" configuration block in "/etc/monit/conf.d/php7.0-fpm"
-sudo tee /etc/monit/conf.d/php7.0-fpm <<EOF
-check process php7.0-fpm with pidfile /var/run/php/php7.0-fpm.pid
-    start program = "/etc/init.d/php7.0-fpm start" with timeout 30 seconds
-    stop program = "/etc/init.d/php7.0-fpm stop"
-    if mem usage > 85% for 2 cycles then restart
-    if failed unixsocket /run/php/php7.0-fpm.sock then restart
+sudo tee /etc/monit/conf.d/php7.1-fpm <<EOF
+check process php7.1-fpm with pidfile /var/run/php/php7.1-fpm.pid
+	start program = "/etc/init.d/php7.1-fpm start" with timeout 10 seconds
+	stop program = "/etc/init.d/php7.1-fpm stop"
+     
+     ## chosse which of is configured on the server (port-9000 OR PHP socket)
+     # check the port
+	if failed host 127.0.0.1 port 9000 type tcp for 2 cycles then restart
+     
+     # check the socket
+     if failed unixsocket /run/php/php7.1-fpm.sock then restart
 EOF
 
-sudo chown root:root /etc/monit/conf.d/php7.0-fpm
+sudo chown root:root /etc/monit/conf.d/php7.1-fpm
 
 #==========================================================
 #"cpu-usage monitoring" configuration block in "/etc/monit/conf.d/cpu-usage"
 sudo tee /etc/monit/conf.d/cpu-usage <<EOF
 check system $HOST
-    if cpu usage > 75% for 2 cycles then alert
+	if cpu > 65% for 2 cycles then exec /usr/bin/sudo /bin/sh -c '/etc/init.d/php7.1-fpm force-reload'
+	if cpu > 90% for 1 cycles then exec /usr/bin/sudo /bin/sh -c '/etc/init.d/php7.1-fpm restart'
+	if cpu > 90% for 1 cycles then exec /usr/bin/sudo /bin/sh -c '/usr/bin/tail -20 /var/log/monit.log > /tmp/last_20_lines_monit_cpu_90.log'
+	if cpu > 98% for 2 cycles then exec /usr/bin/sudo /bin/sh -c '/etc/init.d/nginx restart'
+	if cpu > 98% for 2 cycles then exec /usr/bin/sudo /bin/sh -c '/usr/bin/tail -20 /var/log/monit.log > /tmp/last_20_lines_monit_cpu_98.log'
 EOF
 sudo chown root:root /etc/monit/conf.d/cpu-usage
 
@@ -107,3 +117,15 @@ check file nginx_rc with path /etc/init.d/nginx
     include /etc/monit/templates/rootbin
 
 EOF
+#==========================================================
+check host cofe-aelb-solrcloud-891226402.eu-west-2.elb.amazonaws.com with address cofe-aelb-solrcloud-891226402.eu-west-2.elb.amazonaws.com
+    if failed url
+      http://solrcloud.eu-west-1.elb.amazonaws.com:8983/solr/#/
+    then exec /usr/bin/sudo /bin/sh -c '/etc/init.d/solr restart'
+
+    if failed url
+      http://solrcloud.eu-west-1.elb.amazonaws.com:8983/solr/#/
+    then exec /usr/bin/sudo /bin/sh -c '/usr/bin/tail -20 /var/log/monit.log > /tmp/solr-cloud.log'
+
+#==========================================================
+
