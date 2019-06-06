@@ -52,6 +52,17 @@ server {
         location / {
                 try_files $uri $uri/ =404;
         }
+        
+       location ~* /.well-known/validation/173.txt {
+              alias /tmp/173.txt;
+              allow all;
+              default_type text/plain;
+       } 
+       
+       location /hello {
+          default_type text/plain;
+          echo "hello, world!";
+        }
 }
 
 EOF
