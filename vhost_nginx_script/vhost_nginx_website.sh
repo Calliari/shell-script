@@ -60,8 +60,8 @@ server {
        } 
        
        location /hello {
+          return 200 'hello, world!';
           default_type text/plain;
-          echo "hello, world!";
         }
 }
 
