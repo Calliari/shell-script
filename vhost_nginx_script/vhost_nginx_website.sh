@@ -61,6 +61,7 @@ server {
        
        location /hello {
           return 200 'hello, world!';
+          allow all;
           default_type text/plain;
         }
 }
