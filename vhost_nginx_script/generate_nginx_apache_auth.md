@@ -1,4 +1,4 @@
-# make sure you can use a toll call "htpasswd", if not install this tool
+# Make sure you can use a toll call "htpasswd", if not install this tool
 
 
 #### generate a file with a user and password 
