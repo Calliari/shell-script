@@ -23,5 +23,5 @@ The content of a file `/tmp/example.com-auth.conf` need to have a path to passwo
 satisfy any;
 allow FROM RANGE OF IPs ADDRESS;
 auth_basic "Restricted";
-auth_basic_user_file /tmp/example.com-conf.pwd;
+auth_basic_user_file /tmp/example.com-auth.pwd;
 ```
