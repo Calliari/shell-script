@@ -16,13 +16,15 @@ $ touch /etc/init/sample.conf
 3 - create another file in another directory now, with ".service" extension this time;
 
 ```
-$ touch /lib/systemd/system/sample.service
+$ touch /etc/systemd/system/sample.service
 ```
 
-4 - Hard code with the file created, the sample can be check on this repo with the name sample.service
+4 - Hard code with the file created, the sample can be check on this repo with the name `sample.service`
 
 
-##### Now is the path and the command are correct just start your service with;
+##### Now if the path and the command are correct just start your service with;
+
+The service's naem to be started would be the file created without the `.service` extention, E.X; 
 
 ``` 
 $ sudo service sample start
