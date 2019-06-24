@@ -24,7 +24,8 @@ $ touch /lib/systemd/system/sample.service
 
 ##### Now is the path and the command are correct just start your service with;
 
-``` $ sudo service sample start
+``` 
+$ sudo service sample start
 ```
 
 ##### After that your app will start just like "apache" or "nginx", it can also have the restart and stop commands, just add them to the files, and you are good to go and have the service just like that;
