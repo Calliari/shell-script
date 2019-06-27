@@ -14,18 +14,18 @@ sudo sed -i s/"PasswordAuthentication no"/"PasswordAuthentication yes"/ /etc/ssh
 
 sudo chmod +x /etc/rc.local
 sudo sed -i s/"exit 0"/""/g /etc/rc.local
-echo -e "\n# run every time this server is restarted \n ~/start-up.sh || exit 1 \n" | sudo tee -a /etc/rc.local
+echo -e "\n# run every time this server is restarted \n/root/start-up.sh || exit 1 \n" | sudo tee -a /etc/rc.local
 echo "exit 0" | sudo tee -a /etc/rc.local
 
 # CENTOS
 sudo chmod +x /etc/rc.d/rc.local
 sudo sed -i s/"exit 0"/""/g /etc/rc.d/rc.local
-echo -e "\n# run every time this server is restarted \n ~/start-up.sh || exit 1 \n" | sudo tee -a /etc/rc.d/rc.local
+echo -e "\n# run every time this server is restarted \n/root/start-up.sh || exit 1 \n" | sudo tee -a /etc/rc.d/rc.local
 echo "exit 0" | sudo tee -a /etc/rc.d/rc.local
 
 #=============================================================================
 
-sudo tee <<'EOF'>>  ~/start-up.sh
+sudo tee <<'EOF'>> /root/start-up.sh
 #!/bin/bash
 
 # ========================================================
@@ -41,4 +41,4 @@ exit
 EOF
 
 #=============================================================================
-sudo chmod +x  ~/start-up.sh
+sudo chmod +x /root/start-up.sh
