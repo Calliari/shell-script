@@ -12,7 +12,7 @@ sudo sed -i s/"exit 0"/""/g /etc/rc.local
 echo -e "\n# run every time this server is restarted \n ~/start-up.sh || exit 1 \n" | sudo tee -a /etc/rc.local
 
 echo "exit 0" | sudo tee -a /etc/rc.local
-chmod +x /etc/rc.local
+sudo chmod +x /etc/rc.local
 
 #=============================================================================
 
