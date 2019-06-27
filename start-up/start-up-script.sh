@@ -16,7 +16,21 @@ cd ~/
 sudo tee <<'EOF'>>  ~/start-up.sh
 #!/bin/bash
 
-echo pass1234 | passwd ec2-user --stdin
+# ========================================================
+# ADD a User on Ubuntu
+# useradd -h
+sudo useradd -p $(openssl passwd -1 paSSword123) -s /bin/bash -m newuser
+
+# ========================================================
+# ALLOW USER SSH WITH PQD
+sudo sed -i s/"PasswordAuthentication no"/"PasswordAuthentication yes"/ /etc/ssh/sshd_config
+
+# centos
+sudo service sshd restart
+
+# ubuntu
+sudo service ssh restart
+
 
 exit
 EOF
