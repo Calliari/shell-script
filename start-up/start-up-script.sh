@@ -1,4 +1,8 @@
+#!/bin/bash
+
 # With this instructions all cmds will be running on the "reboot", "start-up".
+
+echo "test" | sudo tee /tmp/test.txt
 
 #=============================================================================
 # add the "trigger" for a script run at every reboot on this server
