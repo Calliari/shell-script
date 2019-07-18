@@ -30,15 +30,19 @@ sudo tee <<'EOF'>> /root/start-up.sh
 
 # ========================================================
 # NOTES
+# CMD groupadd
+# ‘-g‘ defines GID (i.e. 1001) of a group
+# lastesly the groupname to be added
+# sudo groupadd -g 1001 jenkins
+
 # CMD useradd
 # ‘-m -d‘ option creates a user with specified home directory
 # ‘-s‘ option set the user’s default shell i.e. /bin/bash
 # ‘-c‘ option adds the extra information about user (comments)
-# ‘-u‘ defines new user’s UID (i.e. 1000)
-# ‘-g‘ defines GID (i.e. 1000).
-# lastesly the usernaem to be added
-
-#useradd -m -d /var/lib/jenkins/ -s /bin/bash -c "jenkins master from jenkins server" -u 1001 -g 1001 jenkins
+# ‘-u‘ defines new user’s UID (i.e. 1001)
+# ‘-g‘ defines GID (i.e. 1001)
+# lastesly the username to be added
+# sudo useradd -m -d /var/lib/jenkins/ -s /bin/bash -c "jenkins master from jenkins server" -u 1001 -g 1001 jenkins
 
 # ========================================================
 # ADD a User on Ubuntu
