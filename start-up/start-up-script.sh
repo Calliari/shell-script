@@ -38,7 +38,7 @@ sudo tee <<'EOF'>> /root/start-up.sh
 # ‘-g‘ defines GID (i.e. 1000).
 # lastesly the usernaem to be added
 
-#useradd -m -d /var/lib/jenkins/ -s /bin/bash -c "jenkins master from jenkins server" -u 1001 -g 1000 jenkins
+#useradd -m -d /var/lib/jenkins/ -s /bin/bash -c "jenkins master from jenkins server" -u 1001 -g 1001 jenkins
 
 # ========================================================
 # ADD a User on Ubuntu
