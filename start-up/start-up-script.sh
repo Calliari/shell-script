@@ -29,6 +29,18 @@ sudo tee <<'EOF'>> /root/start-up.sh
 #!/bin/bash
 
 # ========================================================
+# NOTES
+# CMD useradd
+# ‘-m -d‘ option creates a user with specified home directory
+# ‘-s‘ option set the user’s default shell i.e. /bin/bash
+# ‘-c‘ option adds the extra information about user (comments)
+# ‘-u‘ defines new user’s UID (i.e. 1000)
+# ‘-g‘ defines GID (i.e. 1000).
+# lastesly the usernaem to be added
+
+#useradd -m -d /var/lib/jenkins/ -s /bin/bash -c "jenkins master from jenkins server" -u 1001 -g 1000 jenkins
+
+# ========================================================
 # ADD a User on Ubuntu
 # useradd -h
 sudo useradd -p $(openssl passwd -1 paSSword123) -s /bin/bash -m newuser
