@@ -1,0 +1,31 @@
+#Create dir
+mkdir ~/.ssh/config.d
+
+#Inside the `~/.ssh/config.d` creaet these files
+proj_1.app
+```
+Host proj-1app
+  User ubuntu
+  HostName proj.1app.com
+#  HostName 123.456.99.250
+  IdentityFile ~/.ssh/proj-1/proj-1.pem
+```
+proj_1.dev
+proj_1.prod
+
+
+
+#On the `~/.ssh/config` file set up as E.X
+############################################
+# PROJ
+Include config.d/proj_1.app
+Include config.d/proj_1.dev
+Include config.d/proj_1.prod
+
+
+# And to add a alias on `~/.bash_profile`
+# ============ proj-server alias ========
+function proj_1 { grep -h 'Host ' ~/.ssh/config.d/proj_1.app ~/.ssh/config.d/proj_1.dev ~/.ssh/config.d/proj_1.prod ; }
+
+restart bash-profile `source ~/.bash_profile`
+On terminal type `proj_1` All servers from `proj_1.dev`, `proj_1.app`, `proj_1.prod` will shows up!
