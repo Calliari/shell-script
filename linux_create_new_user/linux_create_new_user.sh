@@ -13,6 +13,14 @@ sudo service sshd restart
 # ubuntu
 sudo service ssh restart
 
+# ======== Create an user's group ================================================
+sudo groupadd group-1
+# Create a user's group with specif ID
+sudo groupadd -g 1010 group-1
+# View All Groups on the System
+getent group
+
+
 # ======== Random ID ================================================
 # ADD a User on Ubuntu (random ID)
 # useradd -h
