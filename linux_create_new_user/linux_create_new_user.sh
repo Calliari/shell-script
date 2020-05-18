@@ -13,8 +13,8 @@ sudo service sshd restart
 # ubuntu
 sudo service ssh restart
 
-# ========================================================
-# ADD a User on Ubuntu
+# ======== Random ID ================================================
+# ADD a User on Ubuntu (random ID)
 # useradd -h
 sudo useradd -p $(openssl passwd -1 paSSword123) -s /bin/bash -m newuser
 echo "User: newuser"
@@ -25,6 +25,15 @@ echo "Passwd: paSSword123"
 # sudo visudo
 # newuser ALL=(ALL:ALL) ALL
 
+# ========= Specific ID ===============================================
+# ADD a User on Ubuntu (with a specific ID)
+sudo useradd -u 1500 newuser
+# the ID can be verified with a cmd
+id -u newuser
+
+# ========= Create a user with Specific group===========================
+# adding a username 'newuser' to a primary-group(users) and secondary-groups(group-1, group-2 and developers)
+sudo useradd -g users -G group-1,group-2,developers newuser
 
 # ========================================================
 # DELETE a User and home dir on Ubuntu
