@@ -18,6 +18,8 @@ sudo apt-get update
 sudo apt-get install -y certbot python-certbot-nginx
 
 # ===========================================================================================
+# see cmd help
+# sudo certbot certonly --manual
 #
 ## apexand & www-subdomain ssl-only
 # sudo certbot-auto certonly --manual --preferred-challenges=dns --email admin@domain.com --agree-tos -d domain.com -d www.domain.com
