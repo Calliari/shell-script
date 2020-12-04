@@ -1,0 +1,69 @@
+# NOTES on how to show the origin IP address (clinet IP)
+
+https://blog.jayway.com/2014/03/28/how-to-get-the-client-ip-when-using-cloudfront-and-nginx/
+
+# Possible nginx headers 
+
+add_header X-uri "$uri";
+add_header http-origin "$http_origin";
+add_header remote-ip "$remote_addr";
+add_header host-name-websie "$host";
+add_header request-uri "$request_uri";
+add_header server-addr "$server_addr";
+add_header server-name "$server_name";
+add_header real_ip_remote-addr "$realip_remote_addr";
+add_header ihostname "$hostname";
+add_header arg-test "$is_args";
+add_header args-test1 "$args";
+add_header link-l "$request_length";
+add_header root-l "$document_root";
+add_header doc-l "$document_uri";
+add_header path "$realpath_root";
+add_header link "$upstream_http_";
+add_header http_host "$http_host";
+add_header origin_ip "$http_x_real_ip";
+add_header http_x_forwarded_for "$http_x_forwarded_for";
+==========================================================================================
+
+# Ignore trusted IPs
+real_ip_recursive on;
+
+# Set CloudFront subnets as trusted
+set_real_ip_from 127.0.0.1;
+set_real_ip_from 54.182.243.0/28;
+set_real_ip_from 54.192.0.0/16;
+set_real_ip_from 54.230.0.0/16;
+set_real_ip_from 54.239.128.0/18;
+set_real_ip_from 54.239.192.0/19;
+set_real_ip_from 54.240.128.0/18;
+set_real_ip_from 204.246.164.0/22;
+set_real_ip_from 204.246.168.0/22;
+set_real_ip_from 204.246.174.0/23;
+set_real_ip_from 204.246.176.0/20;
+set_real_ip_from 205.251.192.0/19;
+set_real_ip_from 205.251.249.0/24;
+set_real_ip_from 205.251.250.0/23;
+set_real_ip_from 205.251.252.0/23;
+set_real_ip_from 205.251.254.0/24;
+set_real_ip_from 216.137.32.0/19;
+
+==========================================================================================
+# Creating a custom log to show all ips on logs access file, good for dDos attacks, get IP and block them all
+log_format custom_log '$http_x_forwarded_for - $remote_addr - $remote_user [$time_local] '
+                      '"$request" $status $body_bytes_sent '
+                      '"$http_referer" "$http_user_agent"'
+                      '$geoip_country_name $geoip_country_code '
+                      '$geoip_region_name $geoip_city ';
+
+access_log /var/log/nginx/access.log custom_log;
+
+
+==========================================================================================
+# Get the most top IPs which are flooding the server with requests based on latest 1500 logs' lines
+# get filter specific path, and sort on reverse order to make mosts frequent to be on top and limit it for 20 entries only
+tail -15000 access.log | grep -E 'wp-login.php|xmlrpc|index.php|index.html|login' | awk '{ print $1 }' | sort | uniq -c | sort -nr | head -20
+
+# get filter specific request, and sort on reverse order to make mosts frequent to be on top
+cat access.log | grep 'HTTP/1.1' | awk '{ print $1 }' | sed 's/"//g' | sort | uniq -c | sort -nr
+
+==========================================================================================
