@@ -4,17 +4,21 @@ https://blog.jayway.com/2014/03/28/how-to-get-the-client-ip-when-using-cloudfron
 
 # Possible nginx headers 
 
+add_header nginx_scheme "$scheme";
 add_header X-uri "$uri";
 add_header http-origin "$http_origin";
 add_header remote-ip "$remote_addr";
 add_header host-name-websie "$host";
 add_header request-uri "$request_uri";
 add_header server-addr "$server_addr";
+add_header server-port $server_port;
 add_header server-name "$server_name";
 add_header real_ip_remote-addr "$realip_remote_addr";
 add_header ihostname "$hostname";
 add_header arg-test "$is_args";
 add_header args-test1 "$args";
+add_header args-nocache "$arg_nocache";
+add_header arg-comment "$arg_comment";
 add_header link-l "$request_length";
 add_header root-l "$document_root";
 add_header doc-l "$document_uri";
@@ -22,7 +26,17 @@ add_header path "$realpath_root";
 add_header link "$upstream_http_";
 add_header http_host "$http_host";
 add_header origin_ip "$http_x_real_ip";
+add_header http_pragma "$http_pragma";
 add_header http_x_forwarded_for "$http_x_forwarded_for";
+add_header http_x_forwarded_user "$http_x_forwarded_user";
+add_header http_x_upstream_status" $upstream_status";
+add_header connection_number" $connection";
+add_header http_authorization "$http_authorization";
+add_header args_nocache "$arg_nocache";
+add_header cookie_nocache "$cookie_nocache";
+add_header http_upgrade "$http_upgrade";
+add_header fastcgi_script_name "$fastcgi_script_name";
+add_header remote_user "$remote_user";
 ==========================================================================================
 
 # Ignore trusted IPs
