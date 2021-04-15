@@ -40,10 +40,10 @@ cd /usr/local/src/composer1/
 /usr/src/php7.3/php-7.3.27/sapi/cli/php composer-setup.php
 /usr/src/php7.3/php-7.3.27/sapi/cli/php -r "unlink('composer-setup.php');"
 sudo ln -s /usr/local/src/composer1/composer.phar /usr/local/bin/composer1
-composer1 self-update 1.10.10
+composer1 self-update 1.10.10 # change composer version to '1.10.10'
 
-# If composer is already installed from the above steps
-composer self-update
+# If composer is already installed from the above steps for version 2 stable
+composer self-update --2
 
 
 # in case more than one version of the composer is needed (for i.g 'composer2')
