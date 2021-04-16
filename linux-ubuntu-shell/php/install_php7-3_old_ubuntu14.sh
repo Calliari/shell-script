@@ -18,6 +18,11 @@ cd /usr/src/php7.3/php-7.3.27
         --with-freetype-dir=/usr --with-openssl --with-pdo-mysql=/usr --with-gettext=/usr --with-zlib=/usr --with-bz2=/usr \
         --with-mysqli=/usr/bin/mysql_config
 
+
+# this is another example of configuring the php7.3 with a bit of more libraries (https://bugs.php.net/bug.php?id=77770)
+#./configure --prefix=/usr/local/php7.3.3 --with-config-file-path=/usr/local/php7.3.3/etc --with-config-file-scan-dir=/usr/local/php7.3.3/etc/conf.d --enable-bcmath --with-bz2 --with-curl --enable-filter --enable-fpm --with-gd --enable-gd-native-ttf --with-freetype-dir --with-jpeg-dir --with-png-dir --with-mcrypt --enable-intl --enable-mbstring --enable-mysqlnd --with-mysql-sock=/var/lib/mysql/mysql.sock --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-pdo-sqlite --disable-phpdbg --disable-phpdbg-webhelper --enable-opcache --with-openssl --enable-simplexml --with-sqlite3 --enable-xmlreader --enable-xmlwriter --enable-zip --without-libzip
+
+
 # install the php        
 sudo make && sudo make install
 
