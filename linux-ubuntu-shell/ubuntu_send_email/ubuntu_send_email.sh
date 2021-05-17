@@ -22,7 +22,7 @@ sudo apt-get install mailutils -y
 echo 'test body' | mail -s "test subject" -r 'test@example.com' test@gmail.com
 
 
-
+###### ====== #####
 # exim4
 # getting the LOGS
 cat /var/log/exim4/mainlog
@@ -38,5 +38,9 @@ sudo ls -lsa /var/spool/exim4/db/* # check the files
 sudo rm -rf /var/spool/exim4/db/* # remove the files
 
 
+# Block the emails to be send with underscores
+# *:apikey:KK.YYYYYYYYY-yyyy.XXXXxxzzz123
+# *:apikey:KK.YYYYYYYYY-yyyy.XXXXxxzzz123_____
+sudo vim /etc/exim4/passwd.client # adding "_____" (5 underscores) at the end line to block it
 
 
