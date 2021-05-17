@@ -20,3 +20,23 @@ sudo apt-get install mailutils -y
 # send email form the terminal with shell cmd
 # echo 'message body' |  subject email  -r 'sender'  destination 'test@gmail.com'
 echo 'test body' | mail -s "test subject" -r 'test@example.com' test@gmail.com
+
+
+
+# exim4
+# getting the LOGS
+cat /var/log/exim4/mainlog
+
+#Stop - start - restart fromi the exim4 binary
+sudo /etc/init.d/exim4 stop
+sudo /etc/init.d/exim4 start
+sudo /etc/init.d/exim4 restart
+
+
+#In case errors - good to remove these files from "exim4"
+sudo ls -lsa /var/spool/exim4/db/* # check the files
+sudo rm -rf /var/spool/exim4/db/* # remove the files
+
+
+
+
