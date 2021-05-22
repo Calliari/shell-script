@@ -39,7 +39,7 @@ Usage: $0\
 
  ----------- sample ------------------------
 
- $ . update-drupal.sh --site-root=/var/www/bbd-d7.bbdtest.co.uk --branch-name=dev --cms=d7 \
+ $ . update-drupal.sh --site-root=/var/www/www.example.com --branch-name=dev --cms=d7 \
 
  "
   exit 1
