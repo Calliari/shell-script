@@ -38,18 +38,18 @@ sudo ls -lsa /var/spool/exim4/db/* # check the files
 sudo rm -rf /var/spool/exim4/db/* # remove the files
 
 
-# Block the emails to be send with underscores
+# Block the emails to be sent with underscores
 # *:apikey:KK.YYYYYYYYY-yyyy.XXXXxxzzz123
 # *:apikey:KK.YYYYYYYYY-yyyy.XXXXxxzzz123_____
 sudo vim /etc/exim4/passwd.client # adding "_____" (5 underscores) at the end line to block it
 
 ########### === Reference === ################ 
-#1. Take backup of “/var/spool/exim/db/” directory if we can revert.. in case if there is another problem arise.
+#1. Take backup of “/var/spool/exim/db/” directory in case if there is other problems, so we can revert...
 #2. Stop exim service using following command
 
 #root@server[#] /etc/init.d/exim stop
 
-#3. Now delet the ratelimit & retry files
+#3. Now delete the ratelimit & retry files
 
 #root@server[#] rm -rf ratelimit
 #root@server[#] rm -rf retry
@@ -59,4 +59,4 @@ sudo vim /etc/exim4/passwd.client # adding "_____" (5 underscores) at the end li
 #4. Start the exim service
 
 #root@sever[#] /etc/init.d/exim start
-#it will rebuild the Exim Databse
+#it will rebuild the Exim Database
