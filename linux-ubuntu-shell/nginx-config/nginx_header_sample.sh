@@ -83,14 +83,18 @@ cat access.log | grep 'HTTP/1.1' | awk '{ print $1 }' | sed 's/"//g' | sort | un
 ==========================================================================================
 Testing response headers
 
-curl -i -X POST https://www.example.com/test
-curl -I -X POST https://www.example.com/test
+#target is 'www.sample.com'
+curl -i -X POST https://www.sample.com/test
+curl -I -X POST https://www.sample.com/test
 
+#  Origin is 'http://127.0.0.1:3000' - target is 'https://the.sign_in.url'
 curl -i -X OPTIONS -H "Origin: http://127.0.0.1:3000" -H 'Access-Control-Request-Method: POST' -H 'Access-Control-Request-Headers: Content-Type, Authorization' "https://the.sign_in.url"
 
+#  Origin is 'https://www.example.com' - target is 'https://www.sample.com'
 curl -i -X OPTIONS -H "Origin: www.example.com"  -H 'Access-Control-Request-Headers: Content-Type, Authorization' "https:///www.sample.com"
-curl -i -X OPTIONS "https://www.c.com" -H 'Access-Control-Request-Method: POST' -H 'Access-Control-Request-Headers: Content-Type, Accept' -H 'Origin: https://www.sample.com'
+curl -i -X OPTIONS "https://www.sample.com" -H 'Access-Control-Request-Method: POST' -H 'Access-Control-Request-Headers: Content-Type, Accept' -H 'Origin: https://www.example.com'
 
+#  Origin is 'https://www.example.com' - target is 'https://www.sample.com'
 curl -s -D - -H "Origin: https://www.example.com"  "https:///www.sample.com"
 curl -s -D - -H "Origin: https://www.example.com"-X OPTIONS "https:///www.sample.com"
 
