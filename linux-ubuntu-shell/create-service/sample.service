@@ -10,7 +10,9 @@ User=ubuntu
 WorkingDirectory=/PATH/TO/APP/frontend/
 
 # This is the command to run the app
-ExecStart=/usr/bin/npm run dev
+ExecStart=/usr/bin/npm run start
+#or
+#ExecStart=/usr/bin/npm run dev
 
 [Install]
 WantedBy=multi-user.target
