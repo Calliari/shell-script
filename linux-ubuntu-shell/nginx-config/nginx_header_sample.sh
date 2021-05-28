@@ -37,6 +37,39 @@ add_header cookie_nocache "$cookie_nocache";
 add_header http_upgrade "$http_upgrade";
 add_header fastcgi_script_name "$fastcgi_script_name";
 add_header remote_user "$remote_user";
+
+# commom headers
+add_header Access-Control-Allow-Credentials "true" always;
+add_header Access-Control-Allow-Origin "https://example-site-1.com" always;
+add_header Access-Control-Allow-Methods "GET,OPTIONS" always;
+add_header Access-Control-Allow-Headers "x-csrf-token,authorization,content-type,accept,origin,x-requested-with,access-control-allow-origin" always;
+add_header X-Frame-Options "ALLOW-FROM https://example-site-1.com" always;
+add_header Content-Security-Policy "frame-ancestors example-site-1.com;" always;
+add_header X-Content-Type-Options nosniff always;
+add_header X-XSS-Protection "1; mode=block" always;
+
+==========================================================================================
+
+
+# Add nginx headers with conditionl for - 'HTTP' or 'HTTPS' with 'example-site-1.com' or 'example-site-2.com'  or 'example-test-site'
+if ($http_origin ~ "^https?://(example-site-1|example-site-2|example-test-site).comk$") {
+    # add_header Access-Control-Allow-Origin "$http_origin";
+    # add_header http-origin "$http_origin";
+    set $set_http_origin $http_origin;
+}
+
+add_header http-origin "$http_origin"; #  check the "$http_origin"
+add_header Access-Control-Allow-Origin "$set_http_origin"; #  Access-Control-Allow-Origin header with the "$set_http_origin" SET
+
+
+
+# Authorization headers aren't passed in CORS preflight (OPTIONS) calls. Always return a 200 for options.
+if ($request_method = OPTIONS ) {
+    return 200;
+}
+
+
+
 ==========================================================================================
 
 # Ignore trusted IPs
@@ -81,7 +114,7 @@ tail -15000 access.log | grep -E 'wp-login.php|xmlrpc|index.php|index.html|login
 cat access.log | grep 'HTTP/1.1' | awk '{ print $1 }' | sed 's/"//g' | sort | uniq -c | sort -nr
 
 ==========================================================================================
-Testing response headers
+# Testing response headers
 
 #target is 'www.sample.com'
 curl -i -X POST https://www.sample.com/test
