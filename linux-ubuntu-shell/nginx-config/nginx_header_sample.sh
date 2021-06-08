@@ -131,3 +131,6 @@ curl -i -X OPTIONS "https://www.sample.com" -H 'Access-Control-Request-Method: P
 curl -s -D - -H "Origin: https://www.example.com"  "https:///www.sample.com"
 curl -s -D - -H "Origin: https://www.example.com"-X OPTIONS "https:///www.sample.com"
 
+# Send 'referer' header with curl request
+curl -vI --referer http://example.com 'https://www.sample.com/test'
+
