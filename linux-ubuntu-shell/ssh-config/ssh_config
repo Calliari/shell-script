@@ -1,3 +1,10 @@
+# Generate ssh-key 2048 
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+# Generate the agent for ssh test
+eval $(ssh-agent -s)
+ssh -i ~/.ssh/id_rsa_NAME USERNAME@1.2.3.4
+
+
 #Create dir
 mkdir ~/.ssh/config.d
 
