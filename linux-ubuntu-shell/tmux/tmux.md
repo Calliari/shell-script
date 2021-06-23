@@ -6,12 +6,12 @@ sudo apt-get install tmux
 
 #### All tmux commands begin with the prefix "^b" (control b) so enter the prefix following by.a command:
 
-##### Split the panel horizontally (relatve in what panel your course is)
+##### Create/Split the panel horizontally (relatve in what panel your course is)
 ```
 ^b "
 ```
 
-##### Split the panel vertically (relatve in what panel your course is)
+##### Create/Split the panel vertically (relatve in what panel your course is)
 ```
 ^b %
 ```
@@ -21,7 +21,12 @@ sudo apt-get install tmux
 ^b o
 ```
 
-#### To clode your the panel, (relatve in what panel your course is)
+#### To show pane numbers and sync to the selected ones only if needed
+```
+^b q
+```
+
+#### To close your the panel, (relatve in what panel your course is)
 ```
 ^b x
 ```
