@@ -41,6 +41,10 @@ sudo apt-get install tmux
 synchronize-panes on
 ```
 
+#### change the panes layout
+```
+^b spacebar
+```
 
 #### To turn panel synchronization off, use: 
 ```
