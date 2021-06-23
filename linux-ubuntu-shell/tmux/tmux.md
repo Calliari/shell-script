@@ -49,7 +49,7 @@ synchronize-panes on
 
 #### re-atach to a tmux session when you next login
 ```
-#tmux a -t mysession_or_sessino_id
+#tmux a -t mysession_or_session_id
 tmux a -t 2
 ```
 
