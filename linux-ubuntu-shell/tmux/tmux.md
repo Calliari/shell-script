@@ -26,6 +26,11 @@ sudo apt-get install tmux
 ^b q
 ```
 
+#### To go to a specific pane,  show pane numbers and...
+```
+^b : select-pane -t pane_number
+```
+
 #### To close your the panel, (relatve in what panel your course is)
 ```
 ^b x
