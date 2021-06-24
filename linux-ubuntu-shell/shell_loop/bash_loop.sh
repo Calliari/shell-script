@@ -18,7 +18,7 @@ done
 
 ###### ---- #######
 
-# Multi-dimensional arrays in Bash
+# Multi-dimensional arrays in Bash (WITH NUMBER IN SEQUENCE)
 
 # Declare permit modifying the properties of variables (-a for arrays)
 declare -a num
