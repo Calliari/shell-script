@@ -35,7 +35,7 @@ done
 
 
 3) ###### ---- #######
-# Multi-dimensional arrays in Bash (WITH NUMBER IN SEQUENCE)
+# Multi-dimensional arrays in Bash interaction
 
 #   all xml in one array
 xml=(
