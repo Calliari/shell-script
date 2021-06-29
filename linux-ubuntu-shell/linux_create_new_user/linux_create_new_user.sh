@@ -20,6 +20,9 @@ sudo groupadd -g 1010 group-1
 # View All Groups on the System
 getent group
 
+# ======== Update user's ID and user's group ID =================================
+# This will update the vagrant's ID to 1009 and vagrant's group to 1009
+usermod -u 1009 vagrant && groupmod -g 1009 vagrant
 
 # ======== Random ID ================================================
 # ADD a User on Ubuntu (random ID)
