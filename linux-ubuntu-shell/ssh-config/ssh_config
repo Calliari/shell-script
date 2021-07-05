@@ -16,6 +16,7 @@ Host proj-1app
   HostName proj.1app.com
 #  HostName 123.456.99.250
   IdentityFile ~/.ssh/proj-1/proj-1.pem
+  ProxyJump bastion-host-nickname # in case need a jumpbox
 ```
 proj_1.dev
 proj_1.prod
