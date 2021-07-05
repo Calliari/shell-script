@@ -8,7 +8,7 @@ ssh -i ~/.ssh/id_rsa_NAME USERNAME@1.2.3.4
 #Create dir
 mkdir ~/.ssh/config.d
 
-#Inside the `~/.ssh/config.d` creaet these files
+#Inside the `~/.ssh/config.d` creat these files
 proj_1.app
 ```
 Host proj-1app
