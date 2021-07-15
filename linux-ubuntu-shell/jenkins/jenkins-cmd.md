@@ -12,6 +12,7 @@ curl -O http://localhost:8080/jnlpJars/jenkins-cli.jar
 
 Check the if the user is Authenticated and if Authorited to run cmds: 
 ```
+
 java -jar jenkins-cli.jar -s "http://localhost:8080" -auth USERNAME:PWD who-am-i
 ```
 
@@ -42,7 +43,10 @@ cp /var/lib/jenkins/jenkins-version/jenkins-war-version-2.289.2/jenkins.war /usr
 
 sudo systemctl restart jenkins
 
-
-
-
 ```
+
+Download and install the plugins, along with any of its dependencies.
+```
+java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin <name>
+```
+
