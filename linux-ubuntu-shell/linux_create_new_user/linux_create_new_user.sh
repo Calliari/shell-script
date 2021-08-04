@@ -24,6 +24,12 @@ getent group
 # This will update the vagrant's ID to 1009 and vagrant's group to 1009
 usermod -u 1009 vagrant && groupmod -g 1009 vagrant
 
+# ======== Update user's shell  =================================
+usermod --shell /bin/bash jenkins
+
+# ======== Update user's dir  =================================
+usermod -d /var/lib/jenkins jenkins
+
 # ======== Random ID ================================================
 # ADD a User on Ubuntu (random ID)
 # useradd -h
