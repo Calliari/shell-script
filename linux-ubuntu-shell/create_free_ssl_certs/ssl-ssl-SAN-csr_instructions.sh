@@ -4,7 +4,7 @@ $ cat ~/.ssladmin_profile
 # this file read by .bashrc
 
 cd ~/
-echo -e 'Hello bbdadmin!\n
+echo -e 'Hello admin!\n
 **************************************************************
 *                       Pay attention!                       *
 *                                                            *
@@ -16,9 +16,9 @@ echo -e 'Hello bbdadmin!\n
 # ==========================================
 $ cat "~/.bashrc"
 ...
-# custom commands when log as bbdadmin user on "~/.bashrc" file
-if [ -f ~/.bbdadmin_profile ]; then
-    . ~/.bbdadmin_profile
+# custom commands when log as ssladmin user on "~/.bashrc" file
+if [ -f ~/.ssladmin_profile ]; then
+    . ~/.ssladmin_profile
 fi
 
 # =================== Test the new user :message"  =======================
