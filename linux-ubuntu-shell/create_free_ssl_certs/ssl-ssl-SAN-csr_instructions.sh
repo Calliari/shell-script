@@ -30,6 +30,7 @@ cd www.example.com
 
 # ================  Create a  ssl-csr and ssl-key  ================================
 # for a WILDCARD domain, use 'star.example.com.key' and 'www.example.com.csr'
+# Add -subj '/CN=localhost' to suppress questions about the contents of the certificate (replace localhost with your desired domain).
 openssl req -new -newkey rsa:2048 -nodes -keyout  star.example.com.key -out  star.example.com.csr
 
 # for a SINGLE domain, use 'www.example.com.key' and 'www.example.com.csr'
