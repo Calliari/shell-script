@@ -36,7 +36,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout  star.example.com.key -out  sta
 # for a SINGLE domain, use 'www.example.com.key' and 'www.example.com.csr'
 openssl req -new -newkey rsa:2048 -nodes -keyout  www.example.com.key -out  www.example.com.csr
 
-# OUTPUT FORM THE ABOVE CMD
+# BELLOW IS THE OUTPUT FORM THE ABOVE CMD
 
 writing new private key to 'www.example.com.key'
 -----
@@ -59,6 +59,18 @@ Please enter the following 'extra' attributes
 to be sent with your certificate request
 A challenge password []:
 An optional company name []:
+
+
+# ================  Create a  ssl-csr and ssl-key IN ONE COMMAND AUTOMATION VERSION ================================
+#Create key and csr for the web-address, e.g `dev.localhost`
+
+`openssl req -new -sha256 -key www.example.com.key \
+    -subj "/C=GB/ST=England/L=London/O=Local organization Ltd/OU=IT/CN=*.example.com" \
+    -reqexts SAN \
+    -config <(cat /etc/ssl/openssl.cnf \
+        <(printf "\n[SAN]\nsubjectAltName=DNS:example.com,DNS:www.example.com")) \
+    -out example.com.csr`
+
 
 # After this section an key and csr will be generated
 # ================================================
