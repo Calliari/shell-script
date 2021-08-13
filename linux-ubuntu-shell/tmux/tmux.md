@@ -4,6 +4,11 @@ https://tmuxcheatsheet.com/
 ## Install tmux on ubuntu 
 sudo apt-get install tmux
 
+#### Start a session with tmux (session's name : `mysession`)
+```
+tmux new -s mysession
+```
+
 #### All tmux commands begin with the prefix "^b" (control b) so enter the prefix following by.a command:
 
 ##### Create/Split the panel horizontally (relatve in what panel your course is)
