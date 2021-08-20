@@ -10,14 +10,14 @@ Put "startup_message off" on ==> ~/.screenrc
 caption always "%{= Wk}%-w%{= Bw}%n %t%{-}%+w %-="
 
 # Useful commands
-screen                     ==> create a new screen without name it
-screen -t "terminal 1"     ==> create a new screen with name "terminal 1"
-screen -ls                 ==> list of screen terminals created
-screen
-screen -t "Terminal 9" 9   ==> will create a new terminal window called Terminal 9 with a terminal number of 9
-screen -list		   ==> It should list that you have one screen session open
-screen -r 246906	   ==> to reattach to this session [screen -r process_id (PID)]
-exit 			   ==> will exit the terminal, this is the command to terminate the seesion on the open terminal
+screen                      ==> create a new screen without name it
+screen -t "terminal 1"      ==> create a new screen with name "terminal 1"
+screen -ls                  ==> list of screen terminals created
+screen -S your_session_name ==> create a new screen with name "terminal 1"
+screen -t "Terminal 9" 9    ==> will create a new terminal window called Terminal 9 with a terminal number of 9
+screen -list		          ==> It should list that you have one screen session open
+screen -r 246906	          ==> to reattach to this session [screen -r process_id (PID)]
+exit 			                ==> will exit the terminal, this is the command to terminate the seesion on the open terminal
 
 # keyboard shortcuts
 Ctrl-a ?     			==> To see a list of screens created
