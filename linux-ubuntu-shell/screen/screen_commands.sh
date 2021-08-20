@@ -13,7 +13,7 @@ caption always "%{= Wk}%-w%{= Bw}%n %t%{-}%+w %-="
 screen                      ==> create a new screen without name it
 screen -t "terminal 1"      ==> create a new screen with name "terminal 1"
 screen -ls                  ==> list of screen terminals created
-screen -S your_session_name ==> create a new screen with name "terminal 1"
+screen -S your_session_name ==> create a new screen with name "your_session_name"
 screen -t "Terminal 9" 9    ==> will create a new terminal window called Terminal 9 with a terminal number of 9
 screen -list		          ==> It should list that you have one screen session open
 screen -r 246906	          ==> to reattach to this session [screen -r process_id (PID)]
