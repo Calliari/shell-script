@@ -14,3 +14,9 @@ sudo mkfs /dev/mapper/clientdata-srv # format 'no force'
 sudo mkfs.xfs /dev/mapper/clientdata-srv -f # make it xfs format 'force -f'
 
 sudo mount /dev/mapper/clientdata-srv /srv # mount and maybe need restart before mount 'sudo systemctl daemon-reload'
+
+
+#################### resize 
+pvresize /dev/sdb
+lvextend -l +100%FREE /dev/mapper/data-Archive
+xfs_growfs /Archive
