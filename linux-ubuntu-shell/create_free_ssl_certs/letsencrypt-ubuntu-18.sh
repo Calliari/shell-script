@@ -23,3 +23,9 @@ sudo certbot renew --dry-run
 
 If this is good run the command without dry-run
 sudo certbot renew
+
+
+###### Get the KEY and the CERTIFICATE from:
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/example.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/example.com/privkey.pem
