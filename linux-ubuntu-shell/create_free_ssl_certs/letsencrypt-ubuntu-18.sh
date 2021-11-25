@@ -17,3 +17,9 @@ sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot --nginx
+
+# check the renew with dry-run
+sudo certbot renew --dry-run
+
+If this is good run the command without dry-run
+sudo certbot renew
