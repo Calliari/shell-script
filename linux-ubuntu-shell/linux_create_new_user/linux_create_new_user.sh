@@ -52,6 +52,17 @@ id -u newuser
 # adding a username 'newuser' to a primary-group(users) and secondary-groups(group-1, group-2 and developers)
 sudo useradd -g users -G group-1,group-2,developers newuser
 
+# ========= Create a user with Specific group===========================
+# CMD useradd
+# ‘-m -d‘ option creates a user with specified home directory
+# ‘-s‘ option set the user’s default shell i.e. /bin/bash
+# ‘-c‘ option adds the extra information about user (comments)
+# ‘-u‘ defines new user’s UID (i.e. 1001)
+# ‘-g‘ defines GID (i.e. 1001)
+# lastesly the username to be added
+# sudo useradd -m -d /var/lib/jenkins/ -s /bin/bash -c "jenkins master from jenkins server" -u 1001 -g 1001 jenkins
+
+
 # ========================================================
 # DELETE a User and home dir on Ubuntu
 # deluser -h
