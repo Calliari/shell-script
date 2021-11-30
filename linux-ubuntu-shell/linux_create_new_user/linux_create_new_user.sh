@@ -52,6 +52,10 @@ id -u newuser
 # adding a username 'newuser' to a primary-group(users) and secondary-groups(group-1, group-2 and developers)
 sudo useradd -g users -G group-1,group-2,developers newuser
 
+# ========= Add a user to Specific group==========================
+# Adding 'user-bob' to 'www-data' group
+sudo useradd -g www-data user-bob
+
 # ========= Create a user with Specific group===========================
 # CMD useradd
 # ‘-m -d‘ option creates a user with specified home directory
