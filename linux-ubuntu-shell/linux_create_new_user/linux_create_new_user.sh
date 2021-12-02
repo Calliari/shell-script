@@ -66,6 +66,9 @@ sudo useradd -g www-data user-bob
 # lastesly the username to be added
 # sudo useradd -m -d /var/lib/jenkins/ -s /bin/bash -c "jenkins master from jenkins server" -u 1001 -g 1001 jenkins
 
+# ========================================================
+# Disable 'www-data' the "switch to user" with "/sbin/nologin"
+usermod www-data -s /sbin/nologin
 
 # ========================================================
 # DELETE a User and home dir on Ubuntu
