@@ -21,7 +21,7 @@ sudo certbot --nginx
 # check the renew with dry-run
 sudo certbot renew --dry-run
 
-If this is good run the command without dry-run
+# If this is good run the command without dry-run
 sudo certbot renew
 
 
