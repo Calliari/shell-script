@@ -1,0 +1,31 @@
+### TOPS-7480 
+# check the disk space info
+df -h
+
+# list disk blocks on the server
+lsblk
+
+# provides physical volume information
+pvs
+
+# provides logical volumes information
+lvs
+
+# provides volume group information
+vgs
+
+###### #### #### ### 
+# allowing rescan devices for 'sdb'
+# echo 1 > /sys/class/scsi_device/0\:0\:1\:0/device/rescan
+echo 1 >/sys/class/block/sdb/device/rescan
+
+# Check the 'physical volume'
+# Resize physical volume '/dev/sdb'
+pvs
+pvresize /dev/sdb
+
+# extends the size of an LV
+lvextend -l 100%VG /dev/data/db
+
+# grow the partition 
+xfs_growfs /db
