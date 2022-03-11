@@ -1,3 +1,16 @@
+#### sometimes the partition needd to be re-created before the new dev/vda2 blocks updates with new extention
+fdisk  /dev/vda # 'd' delete a partition, 'n' add a new partition, 't' change a partition's system id (8e), 'w' save
+
+partprobe /dev/vda
+pvresize /dev/vda2
+lvextend -l +100%FREE /dev/centos_centos71x64/srv
+xfs_growfs /srv
+
+# check the device ()
+df -TH /dev/centos_centos71x64/srv
+
+
+===================#### #####=====================
 ### TOPS-7480 
 # check the disk space info
 df -h
@@ -29,3 +42,27 @@ lvextend -l 100%VG /dev/data/db
 
 # grow the partition 
 xfs_growfs /db
+
+
+##### sample commands 
+  332  2022-03-11 11:22:26  # dmesg -T | tail
+  333  2022-03-11 11:22:41  # pvs
+  334  2022-03-11 11:22:56  # vgs
+  335  2022-03-11 11:23:04  # lvs
+  336  2022-03-11 11:24:59  # fdisk -l /dev/vda
+  337  2022-03-11 11:25:10  # fdisk  /dev/vda
+  338  2022-03-11 11:26:40  # pvs
+  339  2022-03-11 11:26:47  # pvresize /dev/vda2
+  340  2022-03-11 11:26:51  # pvs
+  341  2022-03-11 11:27:27  # partprobe /dev/vda
+  342  2022-03-11 11:27:30  # pvs
+  343  2022-03-11 11:27:34  # pvresize /dev/vda2
+  344  2022-03-11 11:27:39  # pvs
+  345  2022-03-11 11:27:57  # vgs
+  346  2022-03-11 11:28:02  # lvs
+  347  2022-03-11 11:28:48  # lvextend -l +100%FREE /dev/centos_centos71x64/srv
+  348  2022-03-11 11:28:53  # lvs
+  349  2022-03-11 11:29:01  # mount
+  350  2022-03-11 11:29:15  # df -h
+  351  2022-03-11 11:29:26  # xfs_growfs /srv
+  352  2022-03-11 11:29:42  # df -h /srv
