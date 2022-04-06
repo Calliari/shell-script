@@ -1,0 +1,8 @@
+# Add the public-key on linux
+cat <<EOF | tee -a  ~/.ssh/authorized_keys
+ssh-rsa AAAA...eNBRhxBXw==
+EOF
+
+
+From Windows (command prompt)
+pscp.exe -i "C:\PATH/ssh-private-key.ppk" USER@1.2.3.4:/tmp/FILE_NAME.zip C:\PATH\Downloads\
