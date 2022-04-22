@@ -1,5 +1,13 @@
 #### sometimes the partition needd to be re-created before the new dev/vda2 blocks updates with new extention
-fdisk  /dev/vda # 'd' delete a partition, 'n' add a new partition, 't' change a partition's system id (8e), 'w' save
+fdisk  /dev/vda # 
+- 'd' delete a partition
+- 'n' add a new partition
+- 't' change a partition's system id (8e)
+- 'ENTER' pressed for default on [first & last sector] 
+- 'w' save
+
+
+
 
 partprobe /dev/vda
 pvresize /dev/vda2
