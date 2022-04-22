@@ -6,7 +6,7 @@ fdisk  /dev/vda #
 - 'ENTER' pressed for default on [first & last sector] 
 - 'w' save
 
-
+fdisk  /dev/vda # press 'p' for print partition information, which should have the configuration saved above.
 
 
 partprobe /dev/vda
