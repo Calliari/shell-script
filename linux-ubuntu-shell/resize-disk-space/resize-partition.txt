@@ -1,3 +1,6 @@
+References and tutorial
+https://www.tecmint.com/convert-home-directory-partition-linux/
+
 #### sometimes the partition needd to be re-created before the new dev/vda2 blocks updates with new extention
 fdisk  /dev/vda # 
 - 'd' delete a partition
