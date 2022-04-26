@@ -17,6 +17,16 @@ Host proj-1app
 #  HostName 123.456.99.250
   IdentityFile ~/.ssh/proj-1/proj-1.pem
   ProxyJump bastion-host-nickname # in case need a jumpbox
+  
+# for local-vagrant machines, test with cmd "ssh local-vagrant"
+Host local-vagrant
+  User vagrant
+  HostName 123.456.56.234
+  PreferredAuthentications publickey
+  # IdentityFile ~/.ssh/id_rsa_vagrant_vm_ssh_key
+  # IdentityFile ~/devOps/vagrant-vms/CentOs7/.vagrant/machines/default/virtualbox/private_key
+  IdentityFile ~/.vagrant.d/insecure_private_key
+  
 ```
 proj_1.dev
 proj_1.prod
