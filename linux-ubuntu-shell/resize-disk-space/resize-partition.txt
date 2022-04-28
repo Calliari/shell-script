@@ -14,7 +14,9 @@ fdisk  /dev/vda # press 'p' for print partition information, which should have t
 
 partprobe /dev/vda
 pvresize /dev/vda2
-lvextend -l +100%FREE /dev/centos_centos71x64/srv
+lvextend -l +100%FREE /dev/centos_centos71x64/srv # to take all available free space
+lvextend -L +1G /dev/centos_centos71x64/srv        # to add only 1GB specifically
+lvextend -L +400M /dev/centos_centos71x64/srv      # to add only 400MB specifically
 xfs_growfs /srv
 
 # check the device ()
