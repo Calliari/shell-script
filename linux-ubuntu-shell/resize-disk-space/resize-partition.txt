@@ -1,6 +1,21 @@
 References and tutorial
 https://www.tecmint.com/convert-home-directory-partition-linux/
 
+## check summary of available and used disk space usage of the file system
+df -h
+
+## check/display details about block devices 
+lsblk
+
+## check/displaying Volume Groups
+vgs
+
+## check/physical volume information
+pvs
+
+## check/logical volumes information
+lvs
+
 #### sometimes the partition needd to be re-created before the new dev/vda2 blocks updates with new extention
 # check the pv
 pvs
@@ -12,7 +27,6 @@ fdisk  /dev/vda #
 - 'w' save
 
 fdisk  /dev/vda # press 'p' for print partition information, which should have the configuration saved above.
-
 
 partprobe /dev/vda
 pvresize /dev/vda2
@@ -27,20 +41,6 @@ df -TH /dev/centos_centos71x64/srv
 
 ===================#### #####=====================
 ### TOPS-7480 
-# check the disk space info
-df -h
-
-# list disk blocks on the server
-lsblk
-
-# provides physical volume information
-pvs
-
-# provides logical volumes information
-lvs
-
-# provides volume group information
-vgs
 
 ###### #### #### ### 
 # allowing rescan devices for 'sdb'
