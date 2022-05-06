@@ -20,23 +20,38 @@ sudo vgs
 sudo lvcreate -n logical_vol1 centos_centos71x64
 
 # Check the "Logical Volumes"
-sudo lgdisplay 
+sudo lvdisplay                                  
 sudo lvs
 
-
-# Example 1
+===========================================================================
+# Example 1 
 sudo pvcreate /dev/vdb                        # create "physical-volume"
 sudo vgcreate clientdata /dev/vdb             # create "volume-group"
-sudo lvcreate -l +100%FREE -n srv clientdata  # create "logical-volume" with name "srv" taking all space available
+sudo lvcreate -l +100%FREE -n srv clientdata  # create "logical-volume", that became named as "clientdata-srv" taking all space available
 sudo vgchange -ay clientdata                  # enable and activate
 
+# After creating the  we need to mount it 
+sudo mkfs /dev/mapper/clientdata-srv         # formate 
+sudo mkfs.xfs /dev/mapper/clientdata-srv -f  # make it xfs format
+sudo mount /dev/mapper/clientdata-srv /srv
+sudo systemctl daemon-reload
 
+# mount it on the reboot "cat /etc/fstab | grep opt"
+/dev/mapper/clientdata-srv /srv	xfs	defaults	0 0
+
+===========================================================================
 # Example 2
 sudo pvcreate /dev/vda2                            # create "physical-volume"
 sudo vgcreate centos_centos71x64 /dev/vda2         # create "volume-group"
-sudo lvcreate -L +400M -n opt centos_centos71x64   # create "logical-volume" with name "opt" taking 400M as a directory size
+sudo lvcreate -L +400M -n opt centos_centos71x64   # create "logical-volume", that became named as "centos_centos71x64-opt" taking 400M as a directory size
 sudo vgchange -ay centos_centos71x64               # enable and activate
 
+# After creating the  we need to mount it "chck the other mapper with (df -h)"
+sudo mkfs /dev/mapper/centos_centos71x64-opt          # formate 
+sudo mkfs.xfs /dev/mapper/centos_centos71x64-opt -f   # make it xfs format
+sudo mount /dev/mapper/centos_centos71x64-opt /opt
+sudo systemctl daemon-reload
 
-
+# mount it on the reboot "cat /etc/fstab | grep opt"
+/dev/mapper/centos_centos71x64-opt	/opt	xfs	defaults	0 0
 
