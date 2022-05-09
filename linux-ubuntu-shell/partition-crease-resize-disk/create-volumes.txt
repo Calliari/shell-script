@@ -54,3 +54,8 @@ sudo systemctl daemon-reload
 
 # mount it on the reboot "cat /etc/fstab | grep opt"
 /dev/mapper/centos_centos71x64-opt	/opt	xfs	defaults	0 0
+
+
+
+
+
