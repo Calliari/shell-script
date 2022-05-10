@@ -42,10 +42,15 @@ df -TH /dev/centos_centos71x64/srv
 ===================#### #####=====================
 ### TOPS-7480 
 
-###### #### #### ### 
+###### #### #### ### ## #
+lsblk # chekc the disk-space available on the partitions I.E: "sda" or "sdb"
+
 # allowing rescan devices for 'sdb'
 # echo 1 > /sys/class/scsi_device/0\:0\:1\:0/device/rescan
 echo 1 >/sys/class/block/sdb/device/rescan
+
+# check if the "rescan" has worked 
+lsblk # if worked the partition "/dev/sdb" will have been increased the space for the top level "sbd"
 
 # Check the 'physical volume'
 # Resize physical volume '/dev/sdb'
