@@ -24,3 +24,5 @@ openssl req -new -sha256 -key www.example.com.key \
     -out example.com.csr
     
 openssl req -x509 -sha256 -days 365 -key www.example.com.key -in example.com.csr -out www.example.com.crt
+
+
