@@ -3,7 +3,6 @@ openssl genrsa -out key.pem 2048
 
 # Create a sign certificate request 'CSR' based on the private key 'key.pem'
 # add 'XX' for 'Country Name' in case it's for a prod env fill out all the sections
-
 # (Manual) 
 openssl req -new -sha256 -key key.pem -out csr.csr 
 
