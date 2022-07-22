@@ -1,12 +1,16 @@
 
 ##### The command with 'gpg' allow to generate the key wit the following options
+```
 --quick-generate-key  # requires the USER-ID field on the command line and optionally an algorithm, usage, and expire date. It implements defaults for all other options.
 --generate-key        # prompts for the real name and email fields before asking for a confirmation to proceed. In addition to creating the key, it also stores a revocation certificate.
 --full-generate-key   # prompts a dialog for all options
+```
 
 
 ##### List the key generated 
+```
 gpg --list-keys
+```
 
 ##### List the private-key generated 
 ```
@@ -36,9 +40,11 @@ KCRARQK9W/qhXFQM8D/9KzmqxYQpX3Lzma
 ```
 
 ##### Edit the GPG key with "GPG key ID" and add the user ID details.
+```
 gpg --edit-key 3AA5C34371567BD2
 gpg> adduid
 # add the details need -> [ (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? ]
+```
 gpg> save
-
+```
 
