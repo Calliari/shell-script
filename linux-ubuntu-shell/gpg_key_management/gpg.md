@@ -56,7 +56,7 @@ gpg> save
 
 ##### No longer need the GPG key can be deleted using the 'uid' or 'GPG key ID'
 1. The private-key needs to be deleted first and then the public-key
-Deleting the private-key
+<p>Deleting the private-key</p>
 ```
 # gpg --delete-secret-key [uid]
 gpg --delete-secret-key Hubot
@@ -66,7 +66,7 @@ gpg --delete-secret-key 3AA5C34371567BD2
 ```
 
 2. The public-key can now be deleted
-Deleting the private-key
+<p>Deleting the private-key</p>
 ```
 #gpg --delete-key [uid]
 gpg --delete-key Hubot
