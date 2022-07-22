@@ -65,7 +65,7 @@ gpg --delete-secret-key Hubot
 gpg --delete-secret-key 3AA5C34371567BD2
 ```
 
-2. The public-key can now be deleted
+2. The public-key can now be deleted </br>
 Deleting the private-key
 ```
 #gpg --delete-key [uid]
