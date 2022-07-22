@@ -18,7 +18,6 @@ gpg --list-secret-keys
 ```
 or
 ```
-# the GPG key ID is 3AA5C34371567BD2
 gpg --list-secret-keys --keyid-format=long
 /Users/hubot/.gnupg/secring.gpg
 ------------------------------------
@@ -27,7 +26,7 @@ uid                          Hubot
 ssb   4096R/42B317FD4BA89E7A 2016-03-10
 ```
 
-##### Prints the GPG key ID, in ASCII armor format (public key)
+##### Prints the GPG key ID, in ASCII armor format (public key) - the GPG key ID is 3AA5C34371567BD2
 ```
 gpg --armor --export 3AA5C34371567BD2
 
