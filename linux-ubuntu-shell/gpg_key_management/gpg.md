@@ -12,12 +12,12 @@ gpg -h
 ```
 
 
-##### List the key generated 
+##### List out the public-key
 ```
 gpg --list-keys
 ```
 
-##### List the private-key generated 
+##### List the private-key 
 ```
 gpg --list-secret-keys
 ```
@@ -53,3 +53,24 @@ gpg> adduid
 gpg> save
 ```
 
+
+##### No longer need the GPG key can be deleted using the 'uid' or 'GPG key ID'
+1. The private-key needs to be deleted first and then the public-key
+Deleting the private-key
+```
+# gpg --delete-secret-key [uid]
+gpg --delete-secret-key Hubot
+
+# gpg --delete-secret-key [Key_ID]
+gpg --delete-secret-key 3AA5C34371567BD2
+```
+
+2. The public-key can now be deleted
+Deleting the private-key
+```
+#gpg --delete-key [uid]
+gpg --delete-key Hubot
+
+# gpg --delete-key [Key_ID]
+gpg --delete-key 3AA5C34371567BD2
+```
