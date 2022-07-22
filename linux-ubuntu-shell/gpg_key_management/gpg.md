@@ -6,6 +6,11 @@
 --full-generate-key   # prompts a dialog for all options
 ```
 
+##### For GPG help commands and flags
+```
+gpg -h
+```
+
 
 ##### List the key generated 
 ```
