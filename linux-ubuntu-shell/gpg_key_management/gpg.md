@@ -44,7 +44,6 @@ KCRARQK9W/qhXFQM8D/9KzmqxYQpX3Lzma
 gpg --edit-key 3AA5C34371567BD2
 gpg> adduid
 # add the details need -> [ (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? ]
-```
 gpg> save
 ```
 
