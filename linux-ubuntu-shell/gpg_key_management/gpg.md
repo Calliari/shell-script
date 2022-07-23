@@ -17,6 +17,12 @@ gpg -h
 gpg --list-keys
 ```
 
+##### Import this public-key into your gpg keyring (in ~/.gnupg or similar) by running 
+```
+# from another device export public-key: gpg --armor --export their@email.id > public_key.txt 
+gpg --import public_key.txt
+```
+
 ##### List the private-key 
 ```
 gpg --list-secret-keys
@@ -52,7 +58,6 @@ gpg> adduid
 # add the details need -> [ (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? ]
 gpg> save
 ```
-
 
 ##### No longer need the GPG key can be deleted using the 'uid' or 'GPG key ID'
 1. The private-key needs to be deleted first and then the public-key </br>
