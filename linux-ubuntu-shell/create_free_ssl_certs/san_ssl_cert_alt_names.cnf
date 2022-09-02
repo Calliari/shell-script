@@ -1,0 +1,66 @@
+[ req ]
+distinguished_name = req_distinguished_name
+default_bits	     = 2048
+default_keyfile 	 = privkey.pem
+attributes		     = req_attributes
+x509_extensions	   = v3_ca	  # The extentions to add to the self signed cert
+req_extensions     = v3_req   # The extensions to add to a certificate request
+prompt             = no
+
+[ req_distinguished_name ]
+C = UK                # countryName         = Country Name (2 letter code)
+ST = England          # stateOrProvinceName = State or Province Name (full name)
+L = London            # localityName        = Locality Name (eg, city)
+O = MyCompany Ltd     # organizationName    = Organization Name (eg, company)
+OU = IT department    # organizationUnit    = Organizational Unit Name (eg, section - Informatic, It, Media, ect)
+CN = www.example.com  # commonName          = Common Name (e.g. server FQDN or YOUR name)
+
+[ req_attributes ]
+# challengePassword	= A challenge password
+# challengePassword_min	=
+# challengePassword_max	= 20
+# unstructuredName	= An optional company name
+
+[ v3_ca ] # Extensions for a typical CA
+# PKIX recommendation.
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid:always,issuer
+
+# This is what PKIX recommends but some broken software chokes on critical
+# extensions.
+#basicConstraints = critical,CA:true
+# So we do this instead.
+basicConstraints = CA:true
+
+# Key usage: this is typical for a CA certificate. However since it will
+# prevent it being used as an test self-signed certificate it is best
+# left out by default.
+# keyUsage = cRLSign, keyCertSign
+
+# Some might want this also
+# nsCertType = sslCA, emailCA
+
+# Include email address in subject alt name: another PKIX recommendation
+# subjectAltName=email:copy
+# Copy issuer details
+# issuerAltName=issuer:copy
+
+# DER hex encoding of an extension: beware experts only!
+# obj=DER:02:03
+# Where 'obj' is a standard or added object
+# You can even override a supported extension:
+# basicConstraints= critical, DER:30:03:01:01:FF
+
+[ v3_req ] # Extensions to add to a certificate request
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName=@alt_names
+
+[ alt_names ]
+DNS.1 = www.example.com
+DNS.2 = example.com
+DNS.3 = www.example.net
+DNS.4 = example.net
+DNS.5 = example.it
+DNS.6 = example.co.uk
+
