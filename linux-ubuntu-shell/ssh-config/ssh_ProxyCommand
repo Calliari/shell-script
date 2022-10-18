@@ -1,0 +1,21 @@
+# ssh into the "target" server from "jumpBox"
+ssh -o "ProxyCommand ssh -W %h:%p jumpBox-USER@jumpbox-proj.com -i ~/.ssh/id_rsa" target-USER@proj.1app.com -i ~/.ssh/proj-1/proj-1.pem
+or 
+ssh -o "ProxyCommand ssh -W %h:%p jumpBox-USER@123.456.240.250  -i ~/.ssh/id_rsa" 1app-USER@123.456.99.30   -i ~/.ssh/proj-1/proj-1.pem
+
+
+This command is the same as the ssh config file:
+```
+Host jumpbox
+  User jumpBox-USER
+  HostName jumpbox-proj.com
+#  HostName 123.456.240.250
+  IdentityFile ~/.ssh/id_rsa
+
+Host target-proj-1app-box
+  User 1app-USER
+  HostName proj.1app.com
+#  HostName 123.456.99.30
+  IdentityFile ~/.ssh/proj-1/proj-1.pem
+  ProxyJump jumpbox # bastion-or-jumpbox-nickname in case "jumpbox"
+```
