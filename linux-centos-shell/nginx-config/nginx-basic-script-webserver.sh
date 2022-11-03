@@ -20,6 +20,10 @@ sudo systemctl enable nginx
 #
 sudo systemctl status nginx
 #
-sudo systemctl status nginx
+sudo systemctl reload nginx
 #
 sudo systemctl restart nginx
+
+
+## Configuration test 
+sudo nginx -t
