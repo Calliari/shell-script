@@ -19,3 +19,7 @@ sudo systemctl enable nginx
 
 #
 sudo systemctl status nginx
+#
+sudo systemctl status nginx
+#
+sudo systemctl restart nginx
