@@ -1,0 +1,13 @@
+# Check an MD5 hash of the public key to ensure that it matches with what is in a CSR or private key using openssl command
+## https://knowledgebase.garapost.com/index.php/2018/02/09/how-to-check-an-md5-hash-of-the-public-key-to-ensure-that-it-matches-with-what-is-in-a-csr-or-private-key-using-openssl-command/
+
+The MD5 hash should match the CERT and the KEY, that means they are correct
+
+# Check MD 5hash of the CERT
+openssl x509 -noout -modulus -in certificate.crt | openssl md5
+
+# Check MD 5hash of the KEY
+openssl rsa -noout -modulus -in privateKey.key | openssl md5
+
+# Check MD 5hash of the CSR
+openssl req -noout -modulus -in CSR.csr | openssl md5
