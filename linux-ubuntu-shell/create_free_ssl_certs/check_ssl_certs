@@ -11,7 +11,6 @@ openssl x509  -text -noout -in certificate.crt
 openssl rsa -noout -modulus -in privateKey.key | openssl md5
 openssl rsa -noout -text -in privateKey.key 
 
-
 # Check MD 5hash of the CSR
 openssl req -noout -modulus -in CSR.csr | openssl md5
 openssl req -text -noout -verify -in CSR.csr
