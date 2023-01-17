@@ -47,3 +47,8 @@ openssl x509 -in IntUSERTrustRSAAddTrustCA.crt -text -noout | egrep 'Issuer:|Sub
 openssl x509 -in TrustExternalCARoot.crt -text -noout | egrep 'Issuer:|Subject:'
         Issuer: CN=*.example.com Root CA
         Subject: CN=*.example.com Root CA
+
+
+Add the [CA, root and intermediate] certificates into "CARoot.crt" and the SSL cert into "CERT.crt"  
+openssl verify -verbose -CAfile CARoot.crt CERT.crt
+       CERT.crt: OK
