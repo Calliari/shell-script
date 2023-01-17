@@ -16,6 +16,18 @@ openssl req -noout -modulus -in CSR.csr | openssl md5
 openssl req -text -noout -verify -in CSR.csr
 
 ############################## TRACK the ROOT, the INTERMEDIATE and the private certificates correctly ##############################
+|----------------------|
+| ROOT Certificate.crt |
+|----------------------|
+     |
+     | signs --> |------------------------------|
+                 | INTERMEDIATE Certificate.crt |
+                 |------------------------------|
+                     |
+                     | signs ----> |---------------------|
+                                   | SSL Certificate.crt |
+                                   |---------------------|
+
 1. First, check the CSR: 
 openssl req -text -noout -verify -in CSR.csr | egrep "CN|DNS"
         CN=*.example.com
