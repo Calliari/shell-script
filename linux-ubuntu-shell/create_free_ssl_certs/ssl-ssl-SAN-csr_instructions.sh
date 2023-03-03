@@ -1,3 +1,5 @@
+https://transang.me/create-a-multiple-domains-self-signed-ssl-certificate-with-testing-scripts/
+
 #Create a "ssladmin" user message (after the user is already  created)
 $ cat ~/.ssladmin_profile
 # ~/.ssladmin_profile: executed by the command interpreter for login shells.
