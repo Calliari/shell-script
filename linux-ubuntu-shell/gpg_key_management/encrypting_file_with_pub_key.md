@@ -16,6 +16,9 @@ gpg --homedir /tmp/temp-dir/ --encrypt --recipient ${EMIAL_ADDRESS} secret.txt
 ======================================================================================
 ##### Decrypt a message to the recipient
 ```
+gpg --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
+
+# using a particular privete-key path
 gpg --default-key /tmp/temp-dir/temp-private-key/PRIVATE.key --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
 ```
 
