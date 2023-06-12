@@ -12,16 +12,24 @@ https://rtcamp.com/tutorials/linux/gpg-keys/
 gpg -h
 ```
 
-
 ##### List out the public-key
 ```
 gpg --list-keys
 ```
 
-##### Import this public-key into your gpg keyring (in ~/.gnupg or similar) by running 
+##### Import this keys (public & private) into your gpg keyring (in ~/.gnupg or similar) by running,
+######  Import public-Key
 ```
-# from another device export public-key: gpg --armor --export their@email.id > public_key.txt 
-gpg --import public_key.txt
+gpg --import FILE_NAME
+or
+gpg --import public.key
+```
+
+###### Import Private-Key
+```
+gpg --allow-secret-key-import --import FILE_NAME
+or
+gpg --allow-secret-key-import --import private.key
 ```
 
 ##### List the private-key 
