@@ -17,6 +17,21 @@ gpg -h
 gpg --list-keys
 ```
 
+##### List the private-key 
+```
+gpg --list-secret-keys
+```
+or
+```
+gpg --list-secret-keys --keyid-format=long
+/Users/hubot/.gnupg/secring.gpg
+------------------------------------
+sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+uid                          Hubot 
+ssb   4096R/42B317FD4BA89E7A 2016-03-10
+```
+
+
 ##### Import this keys (public & private) into your gpg keyring (in ~/.gnupg or similar) by running,
 ######  Import public-Key
 ```
@@ -32,19 +47,6 @@ or
 gpg --allow-secret-key-import --import private.key
 ```
 
-##### List the private-key 
-```
-gpg --list-secret-keys
-```
-or
-```
-gpg --list-secret-keys --keyid-format=long
-/Users/hubot/.gnupg/secring.gpg
-------------------------------------
-sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
-uid                          Hubot 
-ssb   4096R/42B317FD4BA89E7A 2016-03-10
-```
 
 ##### Export Public Key
 ##### Prints the GPG public key ID, in ASCII armor format (public key) - the GPG key ID is 3AA5C34371567BD2 or by it's 'uid'
