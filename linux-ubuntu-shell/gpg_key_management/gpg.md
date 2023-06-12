@@ -17,7 +17,7 @@ gpg -h
 gpg --list-keys
 ```
 
-##### List the private-key 
+##### List out the private-key 
 ```
 gpg --list-secret-keys
 ```
