@@ -14,14 +14,9 @@ gpg --homedir /tmp/temp-dir/ --encrypt --recipient ${EMIAL_ADDRESS} secret.txt
 ```
 
 ======================================================================================
-#### Determine "PRIVATE" the key ID and or EMAIL_ADDRESS of the key stored in the file:
-```
-gpg --homedir /tmp/temp-dir/ --list-secret-keys
-
-```
 ##### Decrypt a message to the recipient
 ```
-gpg --homedir /tmp/temp-dir/ --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
+gpg --default-key /tmp/temp-dir/temp-private-key/PRIVATE.key --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
 ```
 
 #### Clean up temporary GnuPG home directory
