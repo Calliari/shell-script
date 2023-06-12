@@ -13,6 +13,11 @@ KEYID=`gpg --list-public-keys --batch --with-colons --homedir /tmp/gnupg | head 
 gpg --homedir /tmp/gnupg --recipient ${KEYID} --encrypt
 ```
 
+#### Decrypt a message to the recipient
+```
+gpg --homedir /tmp/gnupg --recipient ${KEYID} --decrypt file.txt.gpg
+```
+
 #### Clean up temporary GnuPG home directory
 ```
 rm -f /tmp/gnupg
