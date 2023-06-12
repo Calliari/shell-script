@@ -1,24 +1,30 @@
 #### Import the key to a temporary folder, for example using
 ```
-gpg --homedir /tmp/gnupg --import my.pub
+gpg --homedir /tmp/temp-dir/ --import my.pub
 ```
 
-#### Determine the key ID of the key stored in the file:
+#### Determine the "PUBLIC" key ID and or EMAIL_ADDRESS of the key stored in the file:
 ```
-KEYID=`gpg --list-public-keys --batch --with-colons --homedir /tmp/gnupg | head -n1 | cut -d: -f5`
-```
-
-#### Encrypt a message to the recipient
-```
-gpg --homedir /tmp/gnupg --recipient ${KEYID} --encrypt
+gpg --homedir /tmp/temp-dir/ --list-public-keys
 ```
 
-#### Decrypt a message to the recipient
+##### Encrypt a message to the recipient
 ```
-gpg --homedir /tmp/gnupg --recipient ${KEYID} --decrypt file.txt.gpg
+gpg --homedir /tmp/temp-dir/ --encrypt --recipient ${EMIAL_ADDRESS} secret.txt
+```
+
+======================================================================================
+#### Determine "PRIVATE" the key ID and or EMAIL_ADDRESS of the key stored in the file:
+```
+gpg --homedir /tmp/temp-dir/ --list-secret-keys
+
+```
+##### Decrypt a message to the recipient
+```
+gpg --homedir /tmp/temp-dir/ --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
 ```
 
 #### Clean up temporary GnuPG home directory
 ```
-rm -f /tmp/gnupg
+rm -f /tmp/temp-dir/
 ```
