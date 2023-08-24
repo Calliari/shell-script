@@ -22,7 +22,7 @@ gpg --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
 # using a particular privete-key path
 gpg --default-key /tmp/temp-dir/temp-private-key/PRIVATE.key --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
 
-# using the default public-key 
+# Not specifying a "key" or "email associated with a key" will be using the default public-key 
 gpg --decrypt secret.txt.gpg
 ```
 
