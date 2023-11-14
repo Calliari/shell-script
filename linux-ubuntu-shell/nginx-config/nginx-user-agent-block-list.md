@@ -3,10 +3,10 @@ https://www.xmodulo.com/block-specific-user-agents-nginx-web-server.html#google_
 
 ##### These if statements match any bad "user-agent" string with regular expressions, 
 and return 403 HTTP status code when a match is found. 
-($http_user_agent) is a variable that contains the user-agent string of an HTTP request. 
-(~)  is an operator does case-sensitive matching against user-agent string, 
-(~*) is an operator does case-insensitive matching. 
-(|)  is an operator is logical-OR, so you can put as many user-agent keywords in the if statements, and block them all.
+- ($http_user_agent) is a variable that contains the user-agent string of an HTTP request. 
+- (~)  is an operator does case-sensitive matching against user-agent string, 
+- (~*) is an operator does case-insensitive matching. 
+- (|)  is an operator is logical-OR, so you can put as many user-agent keywords in the if statements, and block them all.
 
 ```
 server {
