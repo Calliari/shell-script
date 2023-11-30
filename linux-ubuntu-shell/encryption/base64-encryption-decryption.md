@@ -1,6 +1,6 @@
 ##### based64 encryption and decryption
 
-##### STRING
+##### - STRING
 
 1. To `encrypt` a 'string' in based64, run;
 ```
@@ -12,7 +12,7 @@ echo -n 'my-string' | base64
 echo -n 'bXktc3RyaW5n' | base64 --decode
 ```
 
-##### FILE
+##### - FILE
 
 2. To `encrypt` a 'file' in based64, run;
 ```
