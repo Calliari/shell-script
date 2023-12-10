@@ -1,6 +1,6 @@
 
 1) ###### ---- #######
-# One dimensional array in Bash
+# One-dimensional array in Bash
 
 NAMES=(
 "Test CAVALCANTE"
@@ -37,7 +37,7 @@ done
 3) ###### ---- #######
 # Multi-dimensional arrays in Bash interaction
 
-#   all xml in one array
+# all xml in one array
 xml=(
     'script1'
     'script2'
@@ -55,4 +55,11 @@ context=(
 
 for (( i = 1; i < ${#context[@]} ; i++ )); do
     echo "xml-file: ${xml[$i]} with ${context[$i]}"
+done
+
+4) ###### ---- #######
+# Basic loop in Bash with range (1 to 10000), cp file X times generating it with names starting with "clm", i.e: "clm51954.doc" which would start with "clm0000.doc" and ending with "clm10000.doc"
+
+for i in $(seq 1 1000); do
+    cp original.doc $(printf "clm%04u.doc" $i)
 done
