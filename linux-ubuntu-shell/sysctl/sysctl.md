@@ -39,9 +39,9 @@ To reload the Linux kernel configuration withou reboot, run;
 
 Tutoria;
 1) Check the swappiness before change
-  ```
-  cat /proc/sys/vm/swappiness
-  ```
+    ```
+    cat /proc/sys/vm/swappiness
+    ```
 
 2) Change the swappiness
    ```
