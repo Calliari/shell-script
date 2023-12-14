@@ -55,6 +55,8 @@ Tutorial;
    systemctl daemon-reload
    #or
    sysctl --system
+   #or
+   sudo systemctl reboot -i
 
    ```
 
