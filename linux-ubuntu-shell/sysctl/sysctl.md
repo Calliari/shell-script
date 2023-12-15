@@ -1,5 +1,5 @@
 ##### Change Linux kernel configuration
-There is a dir where various files that can be used to modify the kernel runtime, the basic commaand are;
+There is a dir where various files can be used to modify the kernel runtime, the basic commands are;
 
 See the help and what the flags are;
   ```
@@ -27,12 +27,12 @@ There is a directory at; `/etc/sysctl.d` and a default file at; `sysctl.conf`
   
   ```
 
- Or it can be added inot the main default file;
+ Or it can be added to the main default file;
   ```
   vim  /etc/sysctl.conf
   ```
 
-To reload the Linux kernel configuration withou reboot, run;
+To reload the Linux kernel configuration without reboot (sometimes terminate the session with `exit` is needed), run;
   ```
   sysctl -p
   ```
@@ -48,7 +48,7 @@ Tutorial;
    # vim  /etc/sysctl.conf
    vm.swappiness = 44
    ```
-3) Reload the configuration after chaneg - (reload systemctl)
+3) Reload the configuration after the change - (reload systemctl)
    ```
    sysctl -p
    #or
@@ -56,11 +56,11 @@ Tutorial;
    #or
    sysctl --system
    #or
-   sudo systemctl reboot -i
+   sudo systemctl reboot -i #this is the same as reboot tyhe server
 
    ```
 
-4) recheck the swappiness after change
+4) Recheck the swappiness after change
    ```
    cat /proc/sys/vm/swappiness
    ```
