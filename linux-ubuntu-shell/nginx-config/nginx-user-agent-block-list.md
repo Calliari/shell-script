@@ -14,12 +14,12 @@ server {
     server_name  xmodulo.com;
     root         /usr/share/nginx/html;
 
-    # case sensitive matching
+    # case sensitive matching using (~)
     if ($http_user_agent ~ (Antivirx|Arian)) {
         return 403;
     }
 
-    # case insensitive matching
+    # case insensitive matching using (~*)
     if ($http_user_agent ~* (netcrawl|npbot|malicious)) {
         return 403;
     }
