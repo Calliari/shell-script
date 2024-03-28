@@ -53,7 +53,7 @@ gpg --allow-secret-key-import --import private.key
 ```
 gpg --output public.key --armor --export 3AA5C34371567BD2
 or 
-gpg  --output public.key --armor --export "Hubot"
+gpg --output public.key --armor --export "Hubot"
 
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 KCRARQK9W/qhXFQM8D/9KzmqxYQpX3Lzma
