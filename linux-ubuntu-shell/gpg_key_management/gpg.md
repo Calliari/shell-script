@@ -51,9 +51,9 @@ gpg --allow-secret-key-import --import private.key
 ##### Export Public-Key
 ##### Prints the GPG public key ID, in ASCII armor format (public key) - the GPG key ID is 3AA5C34371567BD2 or by it's 'uid'
 ```
-gpg --armor --export 3AA5C34371567BD2
+gpg --armor --export 3AA5C34371567BD2 --output public.key
 or 
-gpg  --armor --export "Hubot"
+gpg  --armor --export "Hubot" --output public.key
 
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 KCRARQK9W/qhXFQM8D/9KzmqxYQpX3Lzma
