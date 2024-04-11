@@ -1,8 +1,22 @@
 # Check an MD5 hash of the public key to ensure that it matches with what is in a CSR or private key using openssl command
 ## https://knowledgebase.garapost.com/index.php/2018/02/09/how-to-check-an-md5-hash-of-the-public-key-to-ensure-that-it-matches-with-what-is-in-a-csr-or-private-key-using-openssl-command/
 
-The MD5 hash should match the CERT and the KEY, that means they are correct
+############################## ROOT, the INTERMEDIATE and the private certificates chain ##############################
+|----------------------|
+| ROOT Certificate.crt |
+|----------------------|
+     |
+     | signs --> |------------------------------|
+                 | INTERMEDIATE Certificate.crt |
+                 |------------------------------|
+                     |
+                     | signs ----> |---------------------|
+                                   | SSL Certificate.crt |
+                                   |---------------------|
 
+################################## CSR,key and CERT ##############################################################################
+
+The MD5 hash should match the CSR, CERT and the KEY, that means they are correct
 # Check MD 5hash of the CERT
 openssl x509 -noout -modulus -in certificate.crt | openssl md5
 openssl x509 -noout -text -in certificate.crt
@@ -21,19 +35,7 @@ openssl x509 -noout -modulus -in server.crt | openssl md5
 openssl rsa -noout -modulus -in server.key | openssl md5
 openssl req -noout -modulus -in server.csr | openssl md5
 
-############################## TRACK the ROOT, the INTERMEDIATE and the private certificates correctly ##############################
-|----------------------|
-| ROOT Certificate.crt |
-|----------------------|
-     |
-     | signs --> |------------------------------|
-                 | INTERMEDIATE Certificate.crt |
-                 |------------------------------|
-                     |
-                     | signs ----> |---------------------|
-                                   | SSL Certificate.crt |
-                                   |---------------------|
-
+(Method 1)############################## TRACK the ROOT, the INTERMEDIATE and the private certificates correctly ##############################
 1. First, check the CSR: 
 openssl req -text -noout -verify -in CSR.csr | egrep "CN|DNS"
         CN=*.example.com
@@ -58,3 +60,18 @@ openssl x509 -in TrustExternalCARoot.crt -text -noout | egrep 'Issuer:|Subject:'
 Add the [CA, root and intermediate] certificates into "CARoot.crt" and the SSL cert into "CERT.crt"  
 openssl verify -verbose -CAfile CARoot.crt CERT.crt
        CERT.crt: OK
+
+(Method 2)############################# TRACK the ROOT, the INTERMEDIATE and the private certificates correctly ##############################
+--------------------------
+openssl x509 -in entity.pem -hash -issuer_hash -noout
+c54c66ba #this is subject hash
+99bdd351 #this is issuer hash
+
+openssl x509 -in intermediate.pem -hash -issuer_hash -noout
+99bdd351
+4a6481c9
+
+openssl x509 -in root.pem -hash -issuer_hash -noout
+4a6481c9
+4a6481c9
+    
