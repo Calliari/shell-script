@@ -1,7 +1,18 @@
 # Check an MD5 hash of the public key to ensure that it matches with what is in a CSR or private key using openssl command
 ## https://knowledgebase.garapost.com/index.php/2018/02/09/how-to-check-an-md5-hash-of-the-public-key-to-ensure-that-it-matches-with-what-is-in-a-csr-or-private-key-using-openssl-command/
 
-Intermediate Certificate files must end with the root certificate or certificate most proximate to the root and be in a descending order from the Main/Server Certificate to the Root
+Intermediate Certificate files must end with the root certificate or certificate most proximate to the root and be in descending order from the Main/Server Certificate to the Root
+Example:
+  openssl crl2pkcs7 -nocrl -certfile test-chain.txt | openssl pkcs7 -print_certs -noout
+
+     subject=C = GB, ST = England, L = London, O = IT, OU = example Int CA, CN = example.com
+     issuer=CN = example Int CA
+     
+     subject=CN = example Int CA
+     issuer=CN = example Root CA
+     
+     subject=CN = example Root CA
+     issuer=CN = example Root CA
 
 ############################## ROOT, the INTERMEDIATE and the private certificates chain ##############################
 |----------------------|
