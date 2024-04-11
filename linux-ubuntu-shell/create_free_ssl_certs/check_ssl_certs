@@ -1,6 +1,8 @@
 # Check an MD5 hash of the public key to ensure that it matches with what is in a CSR or private key using openssl command
 ## https://knowledgebase.garapost.com/index.php/2018/02/09/how-to-check-an-md5-hash-of-the-public-key-to-ensure-that-it-matches-with-what-is-in-a-csr-or-private-key-using-openssl-command/
 
+Intermediate Certificate files must end with the root certificate or certificate most proximate to the root and be in a descending order from the Main/Server Certificate to the Root
+
 ############################## ROOT, the INTERMEDIATE and the private certificates chain ##############################
 |----------------------|
 | ROOT Certificate.crt |
