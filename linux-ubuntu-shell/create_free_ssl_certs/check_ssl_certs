@@ -18,48 +18,54 @@
 
 The MD5 hash should match the CSR, CERT and the KEY, that means they are correct
 # Check MD 5hash of the CERT
-openssl x509 -noout -modulus -in certificate.crt | openssl md5
-openssl x509 -noout -text -in certificate.crt
+     openssl x509 -noout -modulus -in certificate.crt | openssl md5
+     openssl x509 -noout -text -in certificate.crt
 
 # Check MD 5hash of the KEY
-openssl rsa -noout -modulus -in privateKey.key | openssl md5
-openssl rsa -noout -text -in privateKey.key 
+     openssl rsa -noout -modulus -in privateKey.key | openssl md5
+     openssl rsa -noout -text -in privateKey.key 
 
 # Check MD 5hash of the CSR
-openssl req -noout -modulus -in CSR.csr | openssl md5
-openssl req -noout -text -verify -in CSR.csr
-openssl req -noout -text -in CSR.csr
+     openssl req -noout -modulus -in CSR.csr | openssl md5
+     openssl req -noout -text -verify -in CSR.csr
+     openssl req -noout -text -in CSR.csr
 
 # Verify a "PRIVATE-KEY" matches the "CERTIFICATE" and the "CSR"
-openssl x509 -noout -modulus -in server.crt | openssl md5
-openssl rsa -noout -modulus -in server.key | openssl md5
-openssl req -noout -modulus -in server.csr | openssl md5
+     openssl x509 -noout -modulus -in server.crt | openssl md5
+     openssl rsa -noout -modulus -in server.key | openssl md5
+     openssl req -noout -modulus -in server.csr | openssl md5
 
 (Method 1)############################## TRACK the ROOT, the INTERMEDIATE and the private certificates correctly ##############################
 1. First, check the CSR: 
-openssl req -text -noout -verify -in CSR.csr | egrep "CN|DNS"
+  openssl req -text -noout -verify -in CSR.csr | egrep "CN|DNS"
         CN=*.example.com
         DNS=example.com,DNS:www.example.com
 
 2. The CSR matches the CN, check the CRT & Looking for the "Int CA" intermediate cert
-openssl x509  -text -noout -in CERT.crt | egrep 'Issuer:|Subject:'
+  openssl x509  -text -noout -in CERT.crt | egrep 'Issuer:|Subject:'
         Issuer:  CN=*.example.com Int CA
         Subject: C=GB, ST=England, L=London, O=Local organization Ltd, OU=IT, CN=*.example.com
         
  3. The intermediate cert was issued by root, check the CRT & Looking for the "ROOT CA" root cert
-openssl x509 -in IntUSERTrustRSAAddTrustCA.crt -text -noout | egrep 'Issuer:|Subject:'
+  openssl x509 -in IntUSERTrustRSAAddTrustCA.crt -text -noout | egrep 'Issuer:|Subject:'
         Issuer: CN=*.example.com Root CA
         Subject: CN=*.example.com Int CA
         
 4. The root certs matches with the issued intermediate, Check the CRT until the "Issuer" and the "Subject" has no other certs and should match
-openssl x509 -in TrustExternalCARoot.crt -text -noout | egrep 'Issuer:|Subject:'
+  openssl x509 -in TrustExternalCARoot.crt -text -noout | egrep 'Issuer:|Subject:'
         Issuer: CN=*.example.com Root CA
         Subject: CN=*.example.com Root CA
 
 
 Add the [CA, root and intermediate] certificates into "CARoot.crt" and the SSL cert into "CERT.crt"  
-openssl verify -verbose -CAfile CARoot.crt CERT.crt
+
+  openssl verify -verbose -CAfile CA_Root_and_intermediate.crt UserCert.crt
        CERT.crt: OK
+OR
+
+  openssl verify -verbose -CAfile CA_RootCert.pem -untrusted Intermediate.pem UserCert.pem
+
+
 
 (Method 2)############################# TRACK the ROOT, the INTERMEDIATE and the private certificates correctly ##############################
 --------------------------
