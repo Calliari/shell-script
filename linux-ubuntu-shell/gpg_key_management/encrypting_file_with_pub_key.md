@@ -10,7 +10,7 @@ gpg --homedir /tmp/temp-dir/ --list-public-keys
 
 ##### Encrypt a message to the recipient
 ```
-gpg --homedir /tmp/temp-dir/ --encrypt --recipient ${EMIAL_ADDRESS} secret.txt
+gpg --homedir /tmp/temp-dir/ --encrypt --recipient ${EMIAL_ADDRESS_1} --recipient ${EMIAL_ADDRESS_2} secret.txt
 ```
 
 ======================================================================================
