@@ -36,6 +36,11 @@ tmux new -s mysession
 ^b : select-pane -t pane_number
 ```
 
+#### To the logs of a long output on the panel, (relatve in what panel your course is)
+```
+^b [
+```
+
 #### To close your the panel, (relatve in what panel your course is)
 ```
 ^b x
