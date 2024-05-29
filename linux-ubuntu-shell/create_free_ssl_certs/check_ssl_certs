@@ -37,6 +37,7 @@ The MD5 hash should match the CSR, CERT and the KEY, that means they are correct
 # Check MD 5hash of the KEY
      openssl rsa -noout -modulus -in privateKey.key | openssl md5
      openssl rsa -noout -text -in privateKey.key 
+     openssl rsa -noout -check -in privateKey.key 
 
 # Check MD 5hash of the CSR
      openssl req -noout -modulus -in CSR.csr | openssl md5
