@@ -22,8 +22,8 @@ gpg --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
 # using a particular privete-key path
 gpg --default-key /tmp/temp-dir/temp-private-key/PRIVATE.key --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
 
-# Not specifying a "key" or "email associated with a key" will be using the default public-key 
-gpg --decrypt secret.txt.gpg
+# Not specifying a "key" or "email associated with a key" will be using the default public-key and safe it decrypted to a file 
+gpg --decrypt --output secrets.txt secret.txt.gpg 
 ```
 
 #### Clean up temporary GnuPG home directory
