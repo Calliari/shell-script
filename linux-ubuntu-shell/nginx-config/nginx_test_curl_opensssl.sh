@@ -3,6 +3,8 @@
 # send a request to the nginx sevrer with HOSTNAME from using the localhost
 curl --verbose --header 'Host: HOSTNAME WHERE THE NGINX IS CONFIGURED' -k 'https://127.0.0.1:8201'
 
+# Check connectivity resolving the FQDN on the localhost with the port configured on the nginx webserver
+curl -v --resolve example.com:1002:127.0.0.1  https://example.com:1002
 
 # Testing with the client certs to the endpoinht (http or https)
 curl --cacert ./ca.crt \. # The CA certificate belonging to the CA that signed the server's certificate (if it is not already included with your OS trusted certs)
