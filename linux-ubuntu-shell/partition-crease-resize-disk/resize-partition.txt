@@ -21,7 +21,7 @@ lvs
 pvs
 fdisk  /dev/vda # 
 - 'd' delete a partition
-- 'n' add a new partition
+- 'n' add a new partition --> enter default partition '1' --> size '+2GB' enter --> print details 'p' and 'w' to save
 - 't' change a partition's system id (8e)
 - 'ENTER' pressed for default on [first & last sector] 
 - 'w' save
