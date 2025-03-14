@@ -26,6 +26,11 @@ fdisk  /dev/vda #
 - 'ENTER' pressed for default on [first & last sector] 
 - 'w' save
 
+After save, format the partition, mount it to the PATH_LOCATION, add it to the /etc/fstab to mount automatically :
+mkfs.ext4 /dev/sda5p1
+mkdir /mnt/my_partition && mount /dev/sda5p1 /mnt/my_partition
+UUID=<your-uuid> /mnt/my_partition ext4 defaults 0 2
+
 fdisk  /dev/vda # press 'p' for print partition information, which should have the configuration saved above.
 
 partprobe /dev/vda
