@@ -98,6 +98,6 @@ openssl x509 -in root.pem -hash -issuer_hash -noout
 
 
 BUNUS section (view all ssl certificates in a bundle) :
-openssl crl2pkcs7 -nocrl -certfile CHAINED.pem | openssl pkcs7 -print_certs -text -noout | grep 'Subject'
+openssl crl2pkcs7 -nocrl -certfile CHAINED.pem | openssl pkcs7 -print_certs -text -noout | grep 'Subject:'
 
     
