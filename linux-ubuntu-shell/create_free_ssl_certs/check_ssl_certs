@@ -94,4 +94,10 @@ openssl x509 -in intermediate.pem -hash -issuer_hash -noout
 openssl x509 -in root.pem -hash -issuer_hash -noout
 4a6481c9
 4a6481c9
+
+
+
+BUNUS section (view all ssl certificates in a bundle) :
+openssl crl2pkcs7 -nocrl -certfile CHAINED.pem | openssl pkcs7 -print_certs -text -noout | grep 'Subject'
+
     
