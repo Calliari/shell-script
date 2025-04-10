@@ -23,3 +23,8 @@ In case need decoding;
 ```
 base64 --decode /var/lib/cloud/instances/$INSTANCE_ID/user-data.txt
 ```
+
+Or 
+```
+cat /tmp/user-data.txt| base64 -d | zcat
+```
