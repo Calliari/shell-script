@@ -25,7 +25,7 @@ Host target-proj-1app-box
 
 SSH config using IP's for diference devices, with the IPS being added with wild cars just use the cmd: `ssh 1.2.3.4` or `ssh  172.31.16.52` to ssh ito the machine.
 ```
-Host 1.2.3.* 10.50.60.* 172.31.16.*
+Host 1.2.3.* 10.50.60.* 172.31.16.*, *.this-is-dns.localnet
   User bob.smith
   IdentityFile ~/.ssh/id_rsa
   ProxyJump jumpbox # bastion-or-jumpbox-nickname in case "jumpbox"
