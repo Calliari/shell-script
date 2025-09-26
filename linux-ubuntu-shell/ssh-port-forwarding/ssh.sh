@@ -15,6 +15,6 @@ Open a browser and type
 http://127.0.0.1:8984/solr/#/
 
 
-Another solution to this is (Firefox: -> General -> Network Settings -> Manual proxy configuration: SOCKS Host:localhost, port:8080, select:SOCKS v5, select: Proxy DNS when using SOCKS v5)
+Another solution to this is (Firefox: -> General -> Network Settings -> Manual proxy configuration: SOCKS Host:localhost, port:8080, select:SOCKS v5, select:Proxy DNS when using SOCKS v5)
 ssh -D 8080 {server-alias/address}
 Open the Firefox browser with the URL and it will work as it was on the server. 
