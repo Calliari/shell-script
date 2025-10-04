@@ -22,8 +22,10 @@ sudo swapon /swapfile
 # Make the Swap File Permanent
 # sudo vim  /etc/fstab
 # and add this
-# /swapfile   none    swap    sw    0   0
-echo -e "/swapfile   none    swap    sw    0   0" | sudo tee -a /etc/fstab
+# /swapfile  none  swap  sw  0  0
+echo -e "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
+# Or
+echo -e "/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab
 
 # Values that are closer to 100 will try to put more data into swap in an effort to keep more RAM space free. 
 # default value is "60"
