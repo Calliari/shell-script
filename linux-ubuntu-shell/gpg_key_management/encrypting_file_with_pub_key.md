@@ -11,13 +11,18 @@ gpg --homedir /tmp/temp-dir/ --list-public-keys
 ##### Encrypt a message to the recipient
 ```
 gpg --homedir /tmp/temp-dir/ --encrypt --recipient ${EMIAL_ADDRESS_1} --recipient ${EMIAL_ADDRESS_2} secret.txt
+or 
+gpg --homedir /tmp/temp-dir/ --encrypt --recipient ${KEY_ID_1} --recipient ${KEY_ID_2} secret.txt
 ```
 
 ======================================================================================
 ##### Decrypt a message to the recipient
 ```
-# using a particular email associated with public-key imported
+# using a particular email associated with public-key imported or the KEY_ID
 gpg --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
+or 
+gpg --recipient ${KEY_ID} --decrypt secret.txt.gpg
+
 
 # using a particular privete-key path
 gpg --default-key /tmp/temp-dir/temp-private-key/PRIVATE.key --recipient ${EMIAL_ADDRESS} --decrypt secret.txt.gpg
